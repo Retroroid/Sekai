@@ -8,7 +8,7 @@ using System.Windows.Forms;
 namespace Sekai {
    public class Program {
         [STAThread]
-        public static void Main() {
+        public static void Main(){
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 

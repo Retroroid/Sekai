@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Sekai {
     public class Dot : IComparable<Dot> {
-        // ---------------- Variables ---------------- ---------------- //
+        // ---------------- Variables and Structures ---------------- ---------------- //
         #region Dot Properties
         public string Name { get; set; }
         public string Description { get; set; }
@@ -26,9 +26,10 @@ namespace Sekai {
 
         #region string[] Lists
         public List<string[]> Notes { get; set; }
-        public string[] HeadNotes { get; set; } = { "Title", "Time", "Tag", "Text" }; 
+        public string[] HeadNotes { get; set; } = { "Title", "Time", "Tag", "Text" };
         #endregion
 
+        #region Get-And-Set By name definition
         public object this[string propertyName] {
             get {
                 Type myType = this.GetType();
@@ -41,6 +42,12 @@ namespace Sekai {
                 myPropInfo.SetValue(this, value, null);
             }
         }
+        #endregion
+
+        #region CopyList
+        public List<object> CopyList { get; set; }
+        public Type CopyType { get; set; } 
+        #endregion
 
         // ---------------- Constructors ---------------- ---------------- //
         public Dot() {
@@ -73,8 +80,25 @@ namespace Sekai {
         }
         public dynamic GetPropertyByName(string field) {
             return this[field];
-        } 
+        }
         #endregion
+
+        #region List Manipulation
+        public void CopyListItems<T>(List<T> Liste, int[] Indices) {
+            CopyList = new List<object>();
+            CopyType = typeof(T);
+            foreach(int i in Indices) {
+                CopyList.Add(Liste[i]);
+            }
+        }
+        public void PasteListItems<T>(List<T> Liste, int[] Indices) {
+            if (!CopyType.Equals(typeof(T)) ) throw new Exception("CopyList type and Overwrite type do not match!");
+            for(int i = 0; i < CopyList.Count && i < Indices.Length; i++) {
+                //Liste[Indices[i]] = CopyList[i]
+            }
+        }
+        #endregion
+
         public ListViewItem DotAsLVI(string[] IncludeTheseFields) {
             ListViewItem lvi = new ListViewItem(Name);
             foreach(string st in IncludeTheseFields) {

@@ -4,36 +4,53 @@ using System.Windows.Forms;
 
 namespace Sekai {
     public partial class DohEdit : Sekai.Editor {
-        // ---------------- ---------------- ---------------- ---------------- ---------------- //
-        // ---------------- Class Variables ---------------- ---------------- //
-        public Doh ViewItem;
+        // ---------------- Variables ---------------- ---------------- //
+        new public Doh ViewItem;
 
-        // ---------------- ---------------- ---------------- ---------------- //
-        // ---------------- Class Constructors ---------------- ---------------- //
+        // ---------------- Constructors ---------------- ---------------- //
         public DohEdit() {
             ViewItem = new Doh();
-
             InitializeComponent();
             PostInitialization(ViewItem);
             openFileDialog.FileOk += new CancelEventHandler(OpenFileOK);
-            InitializeD100();
-
-            UpdateD100();
-            UpdateEditor();
+            //UpdateEditor();
         }
         public DohEdit(Doh ViewItem) {
             this.ViewItem = ViewItem;
-
             InitializeComponent();
             PostInitialization(ViewItem);
             openFileDialog.FileOk += new CancelEventHandler(OpenFileOK);
-            InitializeD100();
-
-            UpdateD100();
-            UpdateEditor();
+            //UpdateEditor();
         }
-        // ---------------- ---------------- ---------------- ---------------- //
-        // ---------------- Class Methods ---------------- ---------------- //
+        
+        // ---------------- Methods ---------------- ---------------- //
+        
+            
+        // ---------------- Meta-Methods ---------------- ---------------- //
+        override public void OpenFileOK(object sender, CancelEventArgs e) {
+            using (DohEdit newEditor = new DohEdit()) {
+                ViewItem = Dot.LoadFileRaw((sender as OpenFileDialog).FileName, ViewItem);
+                //newEditor.UpdateEditor();
+                newEditor.Show();
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         public void InitializeD100() {
             listElements.Columns.Add("Weight");
             listElements.Columns.Add("Value");
@@ -61,7 +78,7 @@ namespace Sekai {
             ViewItem.Elements.Add(new Sekai.Element(Database.RNG.Next(60), "Element 10"));
             listElements.Update();
         }
-        // ---------------- ---------------- ---------------- ---------------- //
+        
         // ---------------- Control Methods ---------------- ---------------- //
         private void Button1_Click(object sender, EventArgs e) {
             if (listElements.Items.Count == 0) return;
@@ -74,14 +91,7 @@ namespace Sekai {
             textValue.Text = listElements.SelectedItems[0].SubItems[1].Text;
         }
 
-        // ---------------- ---------------- ---------------- ---------------- //
-        // ---------------- Class Meta-Methods ---------------- ---------------- //
-        override public void OpenFileOK(object sender, CancelEventArgs e) {
-            DohEdit newEditor = new DohEdit(
-                Dot.LoadFileRaw((sender as OpenFileDialog).FileName, ViewItem));
-            newEditor.UpdateEditor();
-            newEditor.Show();
-        }
+        
 
         private void Button2_Click(object sender, EventArgs e) {
             AddSomeData();
@@ -115,7 +125,22 @@ namespace Sekai {
         private void TextValue_MouseLeave(object sender, EventArgs e) {
             UpdateD100();
         }
-        // ---------------- ---------------- ---------------- ---------------- //
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         // ---------------- ---------------- ---------------- ---------------- ---------------- //
     } // End of class
 } // End of namespace

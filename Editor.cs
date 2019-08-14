@@ -26,7 +26,7 @@ namespace Sekai {
 
         public Dictionary<ListView, List<Dot>> LinkDotList;
 
-        public List<string[]> CopyList;
+        public List<ListViewItem> CopyList;
 
         // ---------------- Constructors and Initialization---------------- ---------------- //
         public Editor() {
@@ -144,8 +144,10 @@ namespace Sekai {
         public void ListViewEditItem(object sender, EventArgs e) {
             ToolStripMenuItem tsmi = (ToolStripMenuItem)sender;
             ContextMenuStrip cms = (ContextMenuStrip)tsmi.Owner;
-            new ListViewItemEditor((ListView)cms.SourceControl, LinkLV).ShowDialog();
-            UpdateList((ListView)cms.SourceControl as ListView);
+            using (ListViewItemEditor lvie = new ListViewItemEditor(
+                    (ListView)cms.SourceControl, LinkLV)) {
+                lvie.ShowDialog();
+            }
         }
         public void CreateTSMI(object sender, EventArgs e) {
             ToolStripMenuItem tsmi = (ToolStripMenuItem)sender;
@@ -156,17 +158,16 @@ namespace Sekai {
                 LinkLV[lv].AddEmptyItem(lv.Columns.Count);
                 i++;
             } while (i < lv.SelectedIndices.Count);
-            UpdateList(lv);
         }
         public void CopyTSMI(object sender, EventArgs e) {
             ToolStripMenuItem tsmi = (ToolStripMenuItem)sender;
             ContextMenuStrip cms = (ContextMenuStrip)tsmi.Owner;
             ListView lv = (ListView)cms.SourceControl;
             if (lv.SelectedIndices.Count < 1) return;
+            CopyList = new List<ListViewItem>();
             foreach (int si in lv.SelectedIndices) {
                 CopyList.Add(LinkLV[lv][si]);
             }
-            UpdateList(lv);
         }
         public void PasteTSMI(object sender, EventArgs e) {
             ToolStripMenuItem tsmi = (ToolStripMenuItem)sender;
@@ -181,7 +182,6 @@ namespace Sekai {
                 LinkLV[lv].Add(CopyList[0]);
                 CopyList.RemoveAt(0);
             }
-            UpdateList(lv);
         }
         public void DeleteTSMI(object sender, EventArgs e) {
             ToolStripMenuItem tsmi = (ToolStripMenuItem)sender;
@@ -192,13 +192,11 @@ namespace Sekai {
                 LinkLV[lv].RemoveAt(lv.SelectedIndices[0]);
                 i++;
             }
-            UpdateList(lv);
         } 
         #endregion
 
         public void ListViewColumnClick(object sender, ColumnClickEventArgs e) {
             LinkLV[sender as ListView].SortListByColumn(e.Column);
-            UpdateList(sender as ListView);
         }
 
         // ---------------- Meta-Methods ---------------- ---------------- //
@@ -214,35 +212,7 @@ namespace Sekai {
         public virtual void OpenFileOK(object sender, CancelEventArgs e) { }
         #endregion
 
-
-
-
-
-
-
-
-
-        public void InitializeList(ListView lv, List<string[]> DataList, string[] Headers) {
-            // I don't remember how this works but it does so I'm not touching it
-            if (LinkLV.ContainsKey(lv)) LinkLV.Remove(lv);
-            LinkLV.Add(lv, DataList);
-            lv.ColumnClick += new ColumnClickEventHandler(ListViewColumnClick);
-            lv.BeginUpdate();
-            lv.Columns.Clear();
-            lv.FullRowSelect = true;
-            lv.View = View.Details;
-            lv.GridLines = true;
-            lv.ContextMenuStrip = ContextList;
-            for (int i = 0; i < Headers.Length; i++) {
-                lv.Columns.Add(Headers[i]);
-                lv.Columns[i].Width = -2;
-            }
-            if (DataList.Count > 0 && DataList[0].Equals(Headers)) DataList.RemoveAt(0);
-            lv.EndUpdate();
-        }
         public void UpdateList(ListView lv) {
-            // Updates list based on its VM entry.
-            lv.BeginUpdate();
             lv.Items.Clear();
             ListViewItem lvi;
             for (int Row = 0; Row < LinkLV[lv].Count; Row++) {
@@ -251,25 +221,12 @@ namespace Sekai {
                 lv.Items.Add(lvi);
             }
             foreach (ColumnHeader c in lv.Columns) { c.Width = -2; }
-            lv.EndUpdate();
         }
         public void TextBaseDohnged(object sender, EventArgs e) {
             ViewItem.SetPropertyByName((sender as TextBox).Name.Substring(4), (sender as TextBox).Text);
         }
         public void NumericBaseDohnged(object sender, EventArgs e) {
 
-        }
-        public void UpdateEditor() {
-            foreach (TextBox tb in RegularTextBox) {
-                tb.Text = ViewItem.GetPropertyByName(tb.Name.Substring(4));
-            }
-            foreach (ListView lv in RegularListView) {
-                InitializeList(
-                    lv,
-                    ViewItem.GetPropertyByName(lv.Name.Substring(4)),
-                    ViewItem.GetPropertyByName("Head" + lv.Name.Substring(4)));
-                UpdateList(lv);
-            }
         }
         
         // ---------------- ---------------- ---------------- ---------------- ---------------- //

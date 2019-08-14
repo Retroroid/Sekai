@@ -10,7 +10,7 @@ using System.Windows.Forms;
 namespace Sekai {
     public partial class LocEdit : Sekai.Editor {
         // ---------------- Variables ---------------- ---------------- //
-        public Loc ViewItem;
+        new public Loc ViewItem;
 
         // ---------------- Constructors ---------------- ---------------- //
         public LocEdit() {
@@ -18,21 +18,21 @@ namespace Sekai {
             InitializeComponent();
             PostInitialization(ViewItem);
             openFileDialog.FileOk += new CancelEventHandler(OpenFileOK);
-            UpdateEditor();
+            //UpdateEditor();
         }
         public LocEdit(Loc ViewItem) {
             this.ViewItem = ViewItem;
             InitializeComponent();
             PostInitialization(ViewItem);
             openFileDialog.FileOk += new CancelEventHandler(OpenFileOK);
-            UpdateEditor();
+            //UpdateEditor();
         }
 
         // ---------------- Methods ---------------- ---------------- //
         override public void OpenFileOK(object sender, CancelEventArgs e) {
             using (LocEdit newEditor = new LocEdit()) {
                 ViewItem = Dot.LoadFileRaw((sender as OpenFileDialog).FileName, ViewItem);
-                newEditor.UpdateEditor();
+                //newEditor.UpdateEditor();
                 newEditor.Show();
             }
         }

@@ -10,7 +10,7 @@ using System.Windows.Forms;
 namespace Sekai {
     public partial class EvtEdit : Sekai.Editor {
         // ---------------- Variables ---------------- ---------------- //
-        public Evt ViewItem;
+        new public Evt ViewItem;
 
         // ---------------- Constructors ---------------- ---------------- //
         public EvtEdit() {
@@ -18,21 +18,21 @@ namespace Sekai {
             InitializeComponent();
             PostInitialization(ViewItem);
             openFileDialog.FileOk += new CancelEventHandler(OpenFileOK);
-            UpdateEditor();
+            //UpdateEditor();
         }
         public EvtEdit(Evt ViewItem) {
             this.ViewItem = ViewItem;
             InitializeComponent();
             PostInitialization(ViewItem);
             openFileDialog.FileOk += new CancelEventHandler(OpenFileOK);
-            UpdateEditor();
+            //UpdateEditor();
         }
 
         // ---------------- Methods ---------------- ---------------- //
         override public void OpenFileOK(object sender, CancelEventArgs e) {
             using (EvtEdit newEditor = new EvtEdit()) {
                 ViewItem = Dot.LoadFileRaw((sender as OpenFileDialog).FileName, ViewItem);
-                newEditor.UpdateEditor();
+                //newEditor.UpdateEditor();
                 newEditor.Show();
             }
         }

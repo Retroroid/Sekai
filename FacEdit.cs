@@ -10,7 +10,7 @@ using System.Windows.Forms;
 namespace Sekai {
     public partial class FacEdit : Sekai.Editor {
         // ---------------- Variables ---------------- ---------------- //
-        public Fac ViewItem;
+        new public Fac ViewItem;
 
         // ---------------- Constructors ---------------- ---------------- //
         public FacEdit() {
@@ -18,21 +18,21 @@ namespace Sekai {
             InitializeComponent();
             PostInitialization(ViewItem);
             openFileDialog.FileOk += new CancelEventHandler(OpenFileOK);
-            UpdateEditor();
+            //UpdateEditor();
         }
         public FacEdit(Fac ViewItem) {
             this.ViewItem = ViewItem;
             InitializeComponent();
             PostInitialization(ViewItem);
             openFileDialog.FileOk += new CancelEventHandler(OpenFileOK);
-            UpdateEditor();
+            //UpdateEditor();
         }
 
         // ---------------- Methods ---------------- ---------------- //
         override public void OpenFileOK(object sender, CancelEventArgs e) {
             using (FacEdit newEditor = new FacEdit()) {
                 ViewItem = Dot.LoadFileRaw((sender as OpenFileDialog).FileName, ViewItem);
-                newEditor.UpdateEditor();
+                //newEditor.UpdateEditor();
                 newEditor.Show();
             }
         }

@@ -10,7 +10,7 @@ using System.Windows.Forms;
 namespace Sekai {
     public partial class MdlEdit : Sekai.Editor {
         // ---------------- Variables ---------------- ---------------- //
-        public Mdl ViewItem;
+        new public Mdl ViewItem;
 
         // ---------------- Constructors ---------------- ---------------- //
         public MdlEdit() {
@@ -18,21 +18,20 @@ namespace Sekai {
             InitializeComponent();
             PostInitialization(ViewItem);
             openFileDialog.FileOk += new CancelEventHandler(OpenFileOK);
-            UpdateEditor();
+            //UpdateEditor();
         }
         public MdlEdit(Mdl ViewItem) {
             this.ViewItem = ViewItem;
             InitializeComponent();
             PostInitialization(ViewItem);
             openFileDialog.FileOk += new CancelEventHandler(OpenFileOK);
-            UpdateEditor();
+            //UpdateEditor();
         }
 
         // ---------------- Methods ---------------- ---------------- //
         override public void OpenFileOK(object sender, CancelEventArgs e) {
             using (MdlEdit newEditor = new MdlEdit()) {
                 ViewItem = Dot.LoadFileRaw((sender as OpenFileDialog).FileName, ViewItem);
-                newEditor.UpdateEditor();
                 newEditor.Show();
             }
         }
