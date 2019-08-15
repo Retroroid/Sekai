@@ -67,6 +67,7 @@
             this.listFields.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.ListViewItemEditorColumnID,
             this.ListViewItemEditorColumnValue});
+            this.listFields.FullRowSelect = true;
             this.listFields.GridLines = true;
             this.listFields.Location = new System.Drawing.Point(12, 12);
             this.listFields.Name = "listFields";

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -105,6 +106,10 @@ namespace Sekai {
             dynamic EdtBase = Activator.CreateInstance(EdtType, new T[] { Item });
             EdtBase.Show();
             
+        }
+        public static string GetMemberName<T>(Expression<Func<T>> memberExpression) {
+            MemberExpression expressionBody = (MemberExpression)memberExpression.Body;
+            return expressionBody.Member.Name;
         }
 
         // ---------------- ---------------- ---------------- ---------------- ---------------- //

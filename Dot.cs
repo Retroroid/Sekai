@@ -45,6 +45,7 @@ namespace Sekai {
         #endregion
 
         public List<object> CopyList { get; set; }
+        public List<string[]> CopyListString { get; set; }
 
         // ---------------- Constructors ---------------- ---------------- //
         public Dot() {
@@ -67,7 +68,7 @@ namespace Sekai {
             ImagePath = "";
 
             // Initialize list
-            Notes = new List<string[]> { HeadNotes };
+            Notes = new List<string[]>();
         }
 
         // ---------------- Methods ---------------- ---------------- //
@@ -89,17 +90,40 @@ namespace Sekai {
                 index++;
             } while (index < Indices.Length);
         }
+        public void CreateListItemsString(List<string[]> Liste, string[] Heads, int[] Indices) {
+            int index = 0;
+            do {
+                Liste.Add((string[]) Heads.Clone());
+                index++;
+            } while (index < Indices.Length);
+        }
+
         public void CopyListItems<T>(List<T> Liste, int[] Indices) {
             CopyList = new List<object>();
             foreach (int i in Indices) {
                 CopyList.Add(Liste[i]);
             }
         }
+        public void CopyListItemsString(List<string[]> Liste, int[] Indices) {
+            CopyListString = new List<string[]>();
+            foreach (int i in Indices) {
+                CopyListString.Add(Liste[i]);
+            }
+        }
+
         public void PasteListItems<T>(List<T> Liste, int[] Indices) {
+            if (CopyList.Count < 1) return;
             for (int i = 0; i < CopyList.Count && i < Indices.Length; i++) {
                 Liste[Indices[i]] = (T)Convert.ChangeType(CopyList[i], typeof(T));
             }
         }
+        public void PasteListItemsString(List<string[]> Liste, int[] Indices) {
+            if (CopyListString.Count < 1) return;
+            for (int i = 0; i < CopyListString.Count && i < Indices.Length; i++) {
+                Liste[Indices[i]] = CopyListString[i];
+            }
+        }
+
         public void DeleteListItems<T>(List<T> Liste, int[] Indices) {
             List<int> Index = Indices.ToList<int>();
             Index.Sort();
@@ -108,6 +132,7 @@ namespace Sekai {
                 Index.RemoveAt(Index.Count - 1);
             }
         }
+
         #endregion
 
         public ListViewItem DotAsLVI(string[] IncludeTheseFields) {

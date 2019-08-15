@@ -54,10 +54,6 @@ namespace Sekai {
         private void ButtonDot_Click(object sender, EventArgs e) {
 
         }
-
-        private void ButtonTest_Click(object sender, EventArgs e) {
-            new Tester().Show();
-        }
 #pragma warning restore IDE0067 // Dispose objects before losing scope
         // ---------------- ---------------- ---------------- ---------------- //
         // ---------------- Class Meta-Methods ---------------- ---------------- //

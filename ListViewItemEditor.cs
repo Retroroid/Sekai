@@ -9,13 +9,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 namespace Sekai {
     public partial class ListViewItemEditor : Form {
-        // ---------------- ---------------- ---------------- ---------------- ---------------- //
         // ---------------- Class Variables ---------------- ---------------- //
         public ListView Refer;
         public Dictionary<ListView, List<string[]>> VM;
-        // ---------------- ---------------- ---------------- ---------------- //
+        
         // ---------------- Class Constructors ---------------- ---------------- //
-        //TODO
 
         public ListViewItemEditor(ListView lv, Dictionary<ListView, List<string[]>> VM) {
             if (lv.SelectedIndices.Count < 1) return;
@@ -28,7 +26,6 @@ namespace Sekai {
             }
         }
 
-        // ---------------- ---------------- ---------------- ---------------- //
         // ---------------- Class Methods ---------------- ---------------- //
         private void ListFields_SelectedIndexChanged(object sender, EventArgs e) {
             try { textListItemEditor.Text = listFields.SelectedItems[0].SubItems[1].Text; }
@@ -36,19 +33,18 @@ namespace Sekai {
         }
         private void TextListItemEditor_TextChanged(object sender, EventArgs e) {
             if (Refer.SelectedIndices.Count < 1) return;
+            
             VM[Refer][Refer.SelectedIndices[0]][listFields.SelectedIndices[0]] = textListItemEditor.Text;
             listFields.SelectedItems[0].SubItems[1].Text = textListItemEditor.Text;
-
         }
         private void ButtonLVIESave_Click(object sender, EventArgs e) {
             Close();
+            Refer.Refresh();
         }
 
-        // ---------------- ---------------- ---------------- ---------------- //
         // ---------------- Class Meta-Methods ---------------- ---------------- //
 
 
-        // ---------------- ---------------- ---------------- ---------------- //
         // ---------------- ---------------- ---------------- ---------------- ---------------- //
     } // End of class
 } // End of namespace

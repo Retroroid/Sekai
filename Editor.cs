@@ -85,6 +85,7 @@ namespace Sekai {
             for (int i = 0; i < Headers.Length; i++) {
                 lv.Columns.Add(Headers[i]);
             }
+            ListHeaders.Add(lv, Headers);
             lv.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
         public void InitializeTextBox(TextBox tb) {
@@ -183,6 +184,7 @@ namespace Sekai {
             else {
                 OpenByReference(lv);
             }
+            RegLVUpdateView(lv);
         }
         public void OpenByReference(ListView lv) {
             if (lv.SelectedIndices.Count == 0) return;
@@ -194,8 +196,12 @@ namespace Sekai {
             ContextMenuStrip cms = (ContextMenuStrip)tsmi.Owner;
             ListView lv = (ListView)cms.SourceControl;
             if (RegularListView.Contains(lv)) {
-                // TODO
-                // Add an empty text entry
+                ViewItem.CreateListItemsString(LinkLV[lv], ListHeaders[lv], lv.SelectedIndices.IndicesToArray());
+                for (int i = lv.Items.Count; i < LinkLV[lv].Count; i++) {
+                    lv.Items.Add(new ListViewItem(LinkLV[lv][i]));
+                }
+                lv.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+                lv.Update();
             }
             else {
                 ViewItem.CreateListItems(ListLink[lv], lv.SelectedIndices.IndicesToArray());
@@ -207,13 +213,12 @@ namespace Sekai {
                 lv.Update();
             }
         }
-
         public void CopyTSMI(object sender, EventArgs e) {
             ToolStripMenuItem tsmi = (ToolStripMenuItem)sender;
             ContextMenuStrip cms = (ContextMenuStrip)tsmi.Owner;
             ListView lv = (ListView)cms.SourceControl;
             if (RegularListView.Contains(lv)) {
-
+                ViewItem.CopyListItemsString(LinkLV[lv], lv.SelectedIndices.IndicesToArray());
             }
             else {
                 ViewItem.CopyListItems(ListLink[lv], lv.SelectedIndices.IndicesToArray());
@@ -224,7 +229,8 @@ namespace Sekai {
             ContextMenuStrip cms = (ContextMenuStrip)tsmi.Owner;
             ListView lv = (ListView)cms.SourceControl;
             if (RegularListView.Contains(lv)) {
-
+                ViewItem.PasteListItemsString(LinkLV[lv], lv.SelectedIndices.IndicesToArray());
+                RegLVUpdateView(lv);
             }
             else {
                 ViewItem.PasteListItems(ListLink[lv], lv.SelectedIndices.IndicesToArray());
@@ -240,7 +246,11 @@ namespace Sekai {
             ContextMenuStrip cms = (ContextMenuStrip)tsmi.Owner;
             ListView lv = (ListView)cms.SourceControl;
             if (RegularListView.Contains(lv)) {
-
+                ViewItem.DeleteListItems(LinkLV[lv], lv.SelectedIndices.IndicesToArray());
+                lv.Items.Clear();
+                for (int i = 0; i < LinkLV[lv].Count; i++) {
+                    lv.Items.Add(new ListViewItem(LinkLV[lv][i]));
+                }
             }
             else {
                 ViewItem.DeleteListItems(ListLink[lv], lv.SelectedIndices.IndicesToArray());
