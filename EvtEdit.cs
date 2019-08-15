@@ -18,16 +18,20 @@ namespace Sekai {
             InitializeComponent();
             PostInitialization(ViewItem);
             openFileDialog.FileOk += new CancelEventHandler(OpenFileOK);
-            //UpdateEditor();
+            InitializeEvt();
         }
         public EvtEdit(Evt ViewItem) {
             this.ViewItem = ViewItem;
             InitializeComponent();
             PostInitialization(ViewItem);
             openFileDialog.FileOk += new CancelEventHandler(OpenFileOK);
-            //UpdateEditor();
+            InitializeEvt();
         }
-
+        private void InitializeEvt() {
+            InitializeList(listSubEvents, ViewItem.SubEvents, new string[] { "Name", "Location" } );
+            InitializeList(listCharacters, ViewItem.Characters, new string[] { "Name" });
+            InitializeList(listRandomEvents, ViewItem.RandomEvents, new string[] { "Name" });
+        }
         // ---------------- Methods ---------------- ---------------- //
         override public void OpenFileOK(object sender, CancelEventArgs e) {
             using (EvtEdit newEditor = new EvtEdit()) {

@@ -48,9 +48,6 @@ namespace Sekai {
         }
 
         // ---------------- Databases ---------------- ---------------- //
-        Dictionary<string, string> ItemTag = new Dictionary<string, string> {
-
-        };
 
 
         // ---------------- ---------------- ---------------- ---------------- //

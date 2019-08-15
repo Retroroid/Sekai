@@ -11,16 +11,16 @@ namespace Sekai {
     public partial class ListViewItemEditor : Form {
         // ---------------- ---------------- ---------------- ---------------- ---------------- //
         // ---------------- Class Variables ---------------- ---------------- //
-        ListView Refer;
-        Dictionary<ListView, List<string[]>> VM;
+        public ListView Refer;
+        public Dictionary<ListView, List<string[]>> VM;
         // ---------------- ---------------- ---------------- ---------------- //
         // ---------------- Class Constructors ---------------- ---------------- //
         //TODO
 
-        public ListViewItemEditor(ListView lv, Dictionary<ListView, List<string[]>> VMe) {
+        public ListViewItemEditor(ListView lv, Dictionary<ListView, List<string[]>> VM) {
             if (lv.SelectedIndices.Count < 1) return;
             Refer = lv;
-            VM = VMe;
+            this.VM = VM;
             InitializeComponent();
             for (int i = 0; i < VM[lv][0].Length; i++) {
                 listFields.Items.Add(lv.Columns[i].Text);

@@ -24,9 +24,9 @@ namespace Sekai {
         public Dictionary<TextBox, string> LinkNM;
         #endregion
 
-        public Dictionary<ListView, List<Dot>> LinkDotList;
-
-        public List<ListViewItem> CopyList;
+        public Dictionary<ListView, dynamic> ListLink;
+        public Dictionary<ListView, string[]> ListHeaders;
+        public Dictionary<ListView, Type> ListType;
 
         // ---------------- Constructors and Initialization---------------- ---------------- //
         public Editor() {
@@ -35,6 +35,11 @@ namespace Sekai {
         public void PostInitialization(dynamic ViewItem) {
             this.ViewItem = ViewItem;
 
+            #region Dictionary and List ini
+            ListLink = new Dictionary<ListView, dynamic>();
+            ListHeaders = new Dictionary<ListView, string[]>();
+            ListType = new Dictionary<ListView, Type>();
+
             RegularListView = new List<ListView>();
             RegularTextBox = new List<TextBox>();
             RegularTextBoxNumerical = new List<TextBox>();
@@ -42,18 +47,14 @@ namespace Sekai {
             LinkTB = new Dictionary<TextBox, string>();
             LinkNM = new Dictionary<TextBox, string>();
 
-            Type T = Database.Dots[ViewItem.ClassType];
-            LinkDotList = new Dictionary<ListView, List<Dot>>();
+            InitializeStringList(listNotes, ViewItem.Notes, ViewItem.HeadNotes);
+            InitializeTextBox(textName);
+            InitializeTextBox(textDescription);
+            #endregion
 
-            RegularListView.Add(listNotes);
-            RegularTextBox.Add(textName);
-            RegularTextBox.Add(textDescription);
-
+            #region Directory path and event handling
             openFileDialog.InitialDirectory = ViewItem.DirectoryPath;
             saveFileDialog.InitialDirectory = ViewItem.DirectoryPath;
-
-            textName.TextChanged += new System.EventHandler(TextBaseDohnged);
-            textDescription.TextChanged += new System.EventHandler(TextBaseDohnged);
 
             editToolStripMenuItem.Click += new System.EventHandler(ListViewEditItem);
             createToolStripMenuItem.Click += new System.EventHandler(CreateTSMI);
@@ -65,12 +66,14 @@ namespace Sekai {
             saveAsToolStripMenuItem.Click += new System.EventHandler(SaveAsTSMI);
             saveFileDialog.FileOk += new CancelEventHandler(SaveFileOK);
             openToolStripMenuItem.Click += new System.EventHandler(OpenTSMI);
+            #endregion
         }
 
-        #region Control Initialization (Regular)
+        #region Control Initialization
         public void InitializeStringList(ListView lv, List<string[]> DataList, string[] Headers) {
             if (LinkLV.ContainsKey(lv)) LinkLV.Remove(lv);
             LinkLV.Add(lv, DataList);
+            RegularListView.Add(lv);
 
             lv.FullRowSelect = true;
             lv.View = View.Details;
@@ -82,13 +85,42 @@ namespace Sekai {
             for (int i = 0; i < Headers.Length; i++) {
                 lv.Columns.Add(Headers[i]);
             }
-            lv.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            lv.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
-
+        public void InitializeTextBox(TextBox tb) {
+            RegularTextBox.Add(tb);
+            LinkTB.Add(tb, tb.Name.Substring(4));
+            RegTBUpdateView(tb);
+        }
+        public void InitializeTextBoxNumerical(TextBox tb) {
+            RegularTextBoxNumerical.Add(tb);
+            LinkNM.Add(tb, tb.Name.Substring(4));
+            tb.TextChanged += new EventHandler(TextBoxNumerical_TextChanged);
+            tb.KeyPress += new KeyPressEventHandler(TextBoxNumerical_KeyPressed);
+            RegNMUpdateView(tb);
+        }
+        public void InitializeList<T>(ListView lv, List<T> Liste, string[] Headers) {
+            lv.FullRowSelect = true;
+            lv.View = View.Details;
+            lv.GridLines = true;
+            lv.ContextMenuStrip = ContextList;
+            lv.ColumnClick += new ColumnClickEventHandler(ListViewColumnClick);
+            lv.Columns.Clear();
+            for (int i = 0; i < Headers.Length; i++) {
+                lv.Columns.Add(Headers[i]);
+            }
+            ListLink.Add(lv, Liste);
+            ListHeaders.Add(lv, Headers);
+            ListType.Add(lv, typeof(T));
+            for (int i = 0; i < ListLink[lv].Count; i++) {
+                lv.Items.Add(ListLink[lv][i].DotAsLVI(ListHeaders[lv]));
+            }
+            if (lv.Items.Count == 0) lv.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+            else lv.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+        }
         #endregion
 
         // ---------------- Methods ---------------- ---------------- //
-        #region View Updates
         #region View Updates (Regular)
         public void RegControlUpdateView() {
             foreach (ListView lv in RegularListView) { RegLVUpdateView(lv); }
@@ -101,6 +133,7 @@ namespace Sekai {
             for (int i = 0; i < LinkLV[lv].Count; i++) {
                 lv.Items.Add(new ListViewItem(LinkLV[lv][i]));
             }
+            lv.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
             lv.EndUpdate();
         }
         public void RegTBUpdateView(TextBox tb) {
@@ -116,15 +149,12 @@ namespace Sekai {
 
         #endregion
 
-        #endregion
-
-        #region Model Updates
-
         #region Model Updates (Regular)
-        public void RegLVUpdateModel(ListViewItem lvi) {
-            //TODO
-            // Implemented already in the ListItemEditor?
-        }
+
+        //public void RegLVUpdateModel(ListViewItem lvi) {
+        //    //TODO
+        //    // Implemented already in the ListItemEditor?
+        //}
         public void RegTBUpdateModel(TextBox tb) {
             ViewItem.SetPropertyByName(tb.Name.Substring(4), tb.Text);
         }
@@ -138,61 +168,88 @@ namespace Sekai {
 
         #endregion 
 
-        #endregion
-
-        #region ListView Context List Options
+        #region ListView Context List Options (Including new editor from list)
         public void ListViewEditItem(object sender, EventArgs e) {
             ToolStripMenuItem tsmi = (ToolStripMenuItem)sender;
             ContextMenuStrip cms = (ContextMenuStrip)tsmi.Owner;
-            using (ListViewItemEditor lvie = new ListViewItemEditor(
-                    (ListView)cms.SourceControl, LinkLV)) {
-                lvie.ShowDialog();
+            ListView lv = (ListView)cms.SourceControl;
+
+            if (RegularListView.Contains(lv)) {
+                using (ListViewItemEditor lvie = new ListViewItemEditor(
+                    lv, LinkLV)) {
+                    lvie.ShowDialog();
+                }
+            }
+            else {
+                OpenByReference(lv);
             }
         }
+        public void OpenByReference(ListView lv) {
+            if (lv.SelectedIndices.Count == 0) return;
+            ListLink[lv][lv.SelectedIndices[0]].OpenEditor();
+        }
+
         public void CreateTSMI(object sender, EventArgs e) {
             ToolStripMenuItem tsmi = (ToolStripMenuItem)sender;
             ContextMenuStrip cms = (ContextMenuStrip)tsmi.Owner;
             ListView lv = (ListView)cms.SourceControl;
-            int i = 0;
-            do {
-                LinkLV[lv].AddEmptyItem(lv.Columns.Count);
-                i++;
-            } while (i < lv.SelectedIndices.Count);
+            if (RegularListView.Contains(lv)) {
+                // TODO
+                // Add an empty text entry
+            }
+            else {
+                ViewItem.CreateListItems(ListLink[lv], lv.SelectedIndices.IndicesToArray());
+                // ^ This line does the work. Everything else is just display for the results of the list change.
+                for (int i = lv.Items.Count; i < ListLink[lv].Count; i++) {
+                    lv.Items.Add(ListLink[lv][i].DotAsLVI(ListHeaders[lv]));
+                }
+                lv.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+                lv.Update();
+            }
         }
+
         public void CopyTSMI(object sender, EventArgs e) {
             ToolStripMenuItem tsmi = (ToolStripMenuItem)sender;
             ContextMenuStrip cms = (ContextMenuStrip)tsmi.Owner;
             ListView lv = (ListView)cms.SourceControl;
-            if (lv.SelectedIndices.Count < 1) return;
-            CopyList = new List<ListViewItem>();
-            foreach (int si in lv.SelectedIndices) {
-                CopyList.Add(LinkLV[lv][si]);
+            if (RegularListView.Contains(lv)) {
+
+            }
+            else {
+                ViewItem.CopyListItems(ListLink[lv], lv.SelectedIndices.IndicesToArray());
             }
         }
         public void PasteTSMI(object sender, EventArgs e) {
             ToolStripMenuItem tsmi = (ToolStripMenuItem)sender;
             ContextMenuStrip cms = (ContextMenuStrip)tsmi.Owner;
             ListView lv = (ListView)cms.SourceControl;
-            int i = 0;
-            while (i < lv.SelectedIndices.Count && CopyList.Count > 0) {
-                LinkLV[lv][lv.SelectedIndices[i]] = CopyList[0];
-                CopyList.RemoveAt(0);
+            if (RegularListView.Contains(lv)) {
+
             }
-            while (CopyList.Count > 0) {
-                LinkLV[lv].Add(CopyList[0]);
-                CopyList.RemoveAt(0);
+            else {
+                ViewItem.PasteListItems(ListLink[lv], lv.SelectedIndices.IndicesToArray());
+                foreach (int i in lv.SelectedIndices) {
+                    lv.Items[i] = ListLink[lv][i].DotAsLVI(ListHeaders[lv]);
+                }
+                lv.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+                lv.Update();
             }
         }
         public void DeleteTSMI(object sender, EventArgs e) {
             ToolStripMenuItem tsmi = (ToolStripMenuItem)sender;
             ContextMenuStrip cms = (ContextMenuStrip)tsmi.Owner;
             ListView lv = (ListView)cms.SourceControl;
-            int i = 0;
-            while (i < lv.SelectedIndices.Count) {
-                LinkLV[lv].RemoveAt(lv.SelectedIndices[0]);
-                i++;
+            if (RegularListView.Contains(lv)) {
+
             }
-        } 
+            else {
+                ViewItem.DeleteListItems(ListLink[lv], lv.SelectedIndices.IndicesToArray());
+                lv.Items.Clear();
+                for (int i = 0; i < ListLink[lv].Count; i++) {
+                    lv.Items.Add(ListLink[lv][i].DotAsLVI(ListHeaders[lv]));
+                }
+            }
+        }
         #endregion
 
         public void ListViewColumnClick(object sender, ColumnClickEventArgs e) {
@@ -200,6 +257,19 @@ namespace Sekai {
         }
 
         // ---------------- Meta-Methods ---------------- ---------------- //
+        #region Numerical Text Box Masking
+        public void TextBoxNumerical_TextChanged(object sender, EventArgs e) {
+            if (System.Text.RegularExpressions.Regex.IsMatch((sender as TextBox).Text, "  ^ [0-9]")) {
+                (sender as TextBox).Text = "";
+            }
+        }
+        public void TextBoxNumerical_KeyPressed(object sender, KeyPressEventArgs e) {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.')) {
+                e.Handled = true;
+            }
+        }
+        #endregion
+
         #region Save-Load
         public void SaveTSMI(object sender, EventArgs e) { ViewItem.SaveFile(); }
         public void SaveAsTSMI(object sender, EventArgs e) { saveFileDialog.ShowDialog(); }
@@ -212,23 +282,6 @@ namespace Sekai {
         public virtual void OpenFileOK(object sender, CancelEventArgs e) { }
         #endregion
 
-        public void UpdateList(ListView lv) {
-            lv.Items.Clear();
-            ListViewItem lvi;
-            for (int Row = 0; Row < LinkLV[lv].Count; Row++) {
-                lvi = new ListViewItem(LinkLV[lv][Row][0]);
-                for (int Col = 1; Col < LinkLV[lv][0].Length; Col++) lvi.SubItems.Add(LinkLV[lv][Row][Col]);
-                lv.Items.Add(lvi);
-            }
-            foreach (ColumnHeader c in lv.Columns) { c.Width = -2; }
-        }
-        public void TextBaseDohnged(object sender, EventArgs e) {
-            ViewItem.SetPropertyByName((sender as TextBox).Name.Substring(4), (sender as TextBox).Text);
-        }
-        public void NumericBaseDohnged(object sender, EventArgs e) {
-
-        }
-        
         // ---------------- ---------------- ---------------- ---------------- ---------------- //
     } // End of class
 } // End of namespace

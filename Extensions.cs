@@ -73,11 +73,18 @@ namespace Sekai {
         public static string GetIDFromPath(this string filePath) {
             string[] splitlist = filePath.Split('\\');
             return splitlist[splitlist.Length - 1].Split('.')[0];
-        } 
+        }
         #endregion
 
+        public static int[] IndicesToArray(this System.Windows.Forms.ListView.SelectedIndexCollection lvsic) {
+            int[] ReturnInt = new int[lvsic.Count];
+            for(int i = 0; i < lvsic.Count; i++) {
+                ReturnInt[i] = lvsic[i];
+            }
+            return ReturnInt;
+        }
         public static T WeightedRandom<T>(List<T> list) where T : IWeighable {
-            if (list.Count == 0) return default(T);
+            if (list.Count == 0) return default;
             int TotalWeight = list.Sum(c => c.Weight);
             int Target = Database.RNG.Next(TotalWeight);
             int SumSoFar = 0;
@@ -92,6 +99,12 @@ namespace Sekai {
             string[] ReturnString = sb.Split(Splitter, StringSplitOptions.RemoveEmptyEntries);
 
             return ReturnString.ToArray();
+        }
+        public static void OpenEditore<T>(this T Item) where T : Dot {
+            Type EdtType = Type.GetType("Sekai." + Item.ClassType + "Edit");
+            dynamic EdtBase = Activator.CreateInstance(EdtType, new T[] { Item });
+            EdtBase.Show();
+            
         }
 
         // ---------------- ---------------- ---------------- ---------------- ---------------- //

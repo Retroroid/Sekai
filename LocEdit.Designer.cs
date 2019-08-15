@@ -27,7 +27,6 @@
             this.listImports = new System.Windows.Forms.ListView();
             this.listFacilities = new System.Windows.Forms.ListView();
             this.listCharacters = new System.Windows.Forms.ListView();
-            this.listChildren = new System.Windows.Forms.ListView();
             this.textLocationPath = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -35,54 +34,45 @@
             this.lablExports = new System.Windows.Forms.Label();
             this.lablImports = new System.Windows.Forms.Label();
             this.lablFacilities = new System.Windows.Forms.Label();
-            this.lablChildren = new System.Windows.Forms.Label();
             this.lablCharacters = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // listExports
             // 
-            this.listExports.Location = new System.Drawing.Point(12, 381);
+            this.listExports.Location = new System.Drawing.Point(12, 402);
             this.listExports.Name = "listExports";
-            this.listExports.Size = new System.Drawing.Size(359, 169);
+            this.listExports.Size = new System.Drawing.Size(359, 148);
             this.listExports.TabIndex = 111;
             this.listExports.UseCompatibleStateImageBehavior = false;
             // 
             // listImports
             // 
-            this.listImports.Location = new System.Drawing.Point(12, 556);
+            this.listImports.Location = new System.Drawing.Point(12, 574);
             this.listImports.Name = "listImports";
-            this.listImports.Size = new System.Drawing.Size(359, 169);
+            this.listImports.Size = new System.Drawing.Size(359, 151);
             this.listImports.TabIndex = 112;
             this.listImports.UseCompatibleStateImageBehavior = false;
             // 
             // listFacilities
             // 
-            this.listFacilities.Location = new System.Drawing.Point(377, 381);
+            this.listFacilities.Location = new System.Drawing.Point(377, 402);
             this.listFacilities.Name = "listFacilities";
-            this.listFacilities.Size = new System.Drawing.Size(432, 344);
+            this.listFacilities.Size = new System.Drawing.Size(432, 323);
             this.listFacilities.TabIndex = 113;
             this.listFacilities.UseCompatibleStateImageBehavior = false;
             // 
             // listCharacters
             // 
-            this.listCharacters.Location = new System.Drawing.Point(815, 381);
+            this.listCharacters.Location = new System.Drawing.Point(815, 399);
             this.listCharacters.Name = "listCharacters";
-            this.listCharacters.Size = new System.Drawing.Size(432, 344);
+            this.listCharacters.Size = new System.Drawing.Size(432, 326);
             this.listCharacters.TabIndex = 114;
             this.listCharacters.UseCompatibleStateImageBehavior = false;
-            // 
-            // listChildren
-            // 
-            this.listChildren.Location = new System.Drawing.Point(951, 98);
-            this.listChildren.Name = "listChildren";
-            this.listChildren.Size = new System.Drawing.Size(296, 277);
-            this.listChildren.TabIndex = 115;
-            this.listChildren.UseCompatibleStateImageBehavior = false;
             // 
             // textLocationPath
             // 
             this.textLocationPath.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textLocationPath.Location = new System.Drawing.Point(1280, 150);
+            this.textLocationPath.Location = new System.Drawing.Point(975, 116);
             this.textLocationPath.Multiline = true;
             this.textLocationPath.Name = "textLocationPath";
             this.textLocationPath.Size = new System.Drawing.Size(272, 49);
@@ -92,7 +82,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(1253, 127);
+            this.label1.Location = new System.Drawing.Point(947, 93);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(107, 20);
             this.label1.TabIndex = 117;
@@ -146,16 +136,6 @@
             this.lablFacilities.TabIndex = 124;
             this.lablFacilities.Text = "Facilities";
             // 
-            // lablChildren
-            // 
-            this.lablChildren.AutoSize = true;
-            this.lablChildren.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lablChildren.Location = new System.Drawing.Point(948, 95);
-            this.lablChildren.Name = "lablChildren";
-            this.lablChildren.Size = new System.Drawing.Size(62, 18);
-            this.lablChildren.TabIndex = 125;
-            this.lablChildren.Text = "Children";
-            // 
             // lablCharacters
             // 
             this.lablCharacters.AutoSize = true;
@@ -171,7 +151,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(1564, 734);
             this.Controls.Add(this.lablCharacters);
-            this.Controls.Add(this.lablChildren);
             this.Controls.Add(this.lablFacilities);
             this.Controls.Add(this.lablImports);
             this.Controls.Add(this.lablExports);
@@ -179,7 +158,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textLocationPath);
-            this.Controls.Add(this.listChildren);
             this.Controls.Add(this.listCharacters);
             this.Controls.Add(this.listFacilities);
             this.Controls.Add(this.listImports);
@@ -193,7 +171,6 @@
             this.Controls.SetChildIndex(this.listImports, 0);
             this.Controls.SetChildIndex(this.listFacilities, 0);
             this.Controls.SetChildIndex(this.listCharacters, 0);
-            this.Controls.SetChildIndex(this.listChildren, 0);
             this.Controls.SetChildIndex(this.textLocationPath, 0);
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.label2, 0);
@@ -201,7 +178,6 @@
             this.Controls.SetChildIndex(this.lablExports, 0);
             this.Controls.SetChildIndex(this.lablImports, 0);
             this.Controls.SetChildIndex(this.lablFacilities, 0);
-            this.Controls.SetChildIndex(this.lablChildren, 0);
             this.Controls.SetChildIndex(this.lablCharacters, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -214,7 +190,6 @@
         private System.Windows.Forms.ListView listImports;
         private System.Windows.Forms.ListView listFacilities;
         private System.Windows.Forms.ListView listCharacters;
-        private System.Windows.Forms.ListView listChildren;
         private System.Windows.Forms.TextBox textLocationPath;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -222,7 +197,6 @@
         public System.Windows.Forms.Label lablExports;
         public System.Windows.Forms.Label lablImports;
         public System.Windows.Forms.Label lablFacilities;
-        public System.Windows.Forms.Label lablChildren;
         public System.Windows.Forms.Label lablCharacters;
     }
 }

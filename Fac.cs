@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 namespace Sekai {
     public class Fac : Aso {
         // ---------------- Variables ---------------- ---------------- //
-        public Loc Location { get; set; }
         public Aso Association { get; set; }
 
         #region Dot Lists
@@ -17,7 +16,6 @@ namespace Sekai {
 
         #region string[] Lists
         public List<string[]> Services { get; set; }
-
         public string[] HeadServices { get; set; } = { "Service", "Description", "Cost" };
         #endregion
 

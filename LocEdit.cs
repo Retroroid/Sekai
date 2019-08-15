@@ -18,16 +18,22 @@ namespace Sekai {
             InitializeComponent();
             PostInitialization(ViewItem);
             openFileDialog.FileOk += new CancelEventHandler(OpenFileOK);
-            //UpdateEditor();
+            InitializeLoc();
         }
         public LocEdit(Loc ViewItem) {
             this.ViewItem = ViewItem;
             InitializeComponent();
             PostInitialization(ViewItem);
             openFileDialog.FileOk += new CancelEventHandler(OpenFileOK);
-            //UpdateEditor();
+            InitializeLoc();
         }
-
+        private void InitializeLoc() {
+            InitializeStringList(listExports, ViewItem.Exports, ViewItem.HeadExports);
+            InitializeStringList(listImports, ViewItem.Imports, ViewItem.HeadImports);
+            InitializeList(listFacilities, ViewItem.Facilities, new string[] { "Name", "Focus" });
+            InitializeList(listCharacters, ViewItem.Characters, new string[] { "Name", "Shift" });
+            InitializeTextBox(textLocationPath);
+        }
         // ---------------- Methods ---------------- ---------------- //
         override public void OpenFileOK(object sender, CancelEventArgs e) {
             using (LocEdit newEditor = new LocEdit()) {

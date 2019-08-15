@@ -59,12 +59,13 @@ namespace Sekai {
         #endregion
 
         #region RP Block
-        public Loc CurrentLocation;
+        public Loc Location { get; set; }
         public string CurrentlyDoing { get; set; }
+        public string Shift { get; set; }
         #endregion
 
         #region Dot Lists
-        public List<Cha> Relationships;
+        public List<Cha> Relationships { get; set; }
         public List<Itm> Inventory { get; set; }
         #endregion
 

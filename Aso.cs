@@ -7,10 +7,13 @@ using System.Threading.Tasks;
 namespace Sekai {
     public class Aso : Dot {
         // ---------------- Variables ---------------- ---------------- //
+        public Loc Location { get; set; }
+        public string Focus { get; set; }
+
         #region Dot Lists
         public List<Loc> Locations { get; set; }
         public List<Cha> Members { get; set; }
-        List<List<Cha>> Groups { get; set; }
+        public List<Aso> Groups { get; set; }
         #endregion
 
         #region string[] Lists
@@ -22,10 +25,12 @@ namespace Sekai {
         public Aso() : base(){
             Locations = new List<Loc>();
             Members = new List<Cha>();
-            Groups = new List<List<Cha>>();
+            Groups = new List<Aso>();
 
             Ranks = new List<string[]>();
             Ranks = new List<string[]> { HeadRanks };
+
+            Focus = "Focus";
         }
 
          // ---------------- Methods ---------------- ---------------- //

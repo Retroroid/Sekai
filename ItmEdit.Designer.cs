@@ -24,7 +24,7 @@
         /// </summary>
         private void InitializeComponent() {
             this.listRolls = new System.Windows.Forms.ListView();
-            this.listTags = new System.Windows.Forms.ListView();
+            this.listItemTags = new System.Windows.Forms.ListView();
             this.textItemType = new System.Windows.Forms.TextBox();
             this.textItemSubType = new System.Windows.Forms.TextBox();
             this.textMass = new System.Windows.Forms.TextBox();
@@ -43,19 +43,19 @@
             // 
             // listRolls
             // 
-            this.listRolls.Location = new System.Drawing.Point(204, 381);
+            this.listRolls.Location = new System.Drawing.Point(204, 402);
             this.listRolls.Name = "listRolls";
-            this.listRolls.Size = new System.Drawing.Size(741, 345);
+            this.listRolls.Size = new System.Drawing.Size(741, 324);
             this.listRolls.TabIndex = 111;
             this.listRolls.UseCompatibleStateImageBehavior = false;
             // 
             // listTags
             // 
-            this.listTags.Location = new System.Drawing.Point(951, 98);
-            this.listTags.Name = "listTags";
-            this.listTags.Size = new System.Drawing.Size(601, 132);
-            this.listTags.TabIndex = 112;
-            this.listTags.UseCompatibleStateImageBehavior = false;
+            this.listItemTags.Location = new System.Drawing.Point(951, 116);
+            this.listItemTags.Name = "listTags";
+            this.listItemTags.Size = new System.Drawing.Size(601, 114);
+            this.listItemTags.TabIndex = 112;
+            this.listItemTags.UseCompatibleStateImageBehavior = false;
             // 
             // textItemType
             // 
@@ -203,7 +203,7 @@
             this.Controls.Add(this.textMass);
             this.Controls.Add(this.textItemSubType);
             this.Controls.Add(this.textItemType);
-            this.Controls.Add(this.listTags);
+            this.Controls.Add(this.listItemTags);
             this.Controls.Add(this.listRolls);
             this.Name = "ItmEdit";
             this.Controls.SetChildIndex(this.listNotes, 0);
@@ -211,7 +211,7 @@
             this.Controls.SetChildIndex(this.textName, 0);
             this.Controls.SetChildIndex(this.textDescription, 0);
             this.Controls.SetChildIndex(this.listRolls, 0);
-            this.Controls.SetChildIndex(this.listTags, 0);
+            this.Controls.SetChildIndex(this.listItemTags, 0);
             this.Controls.SetChildIndex(this.textItemType, 0);
             this.Controls.SetChildIndex(this.textItemSubType, 0);
             this.Controls.SetChildIndex(this.textMass, 0);
@@ -234,7 +234,7 @@
         #endregion
 
         private System.Windows.Forms.ListView listRolls;
-        private System.Windows.Forms.ListView listTags;
+        private System.Windows.Forms.ListView listItemTags;
         private System.Windows.Forms.TextBox textItemType;
         private System.Windows.Forms.TextBox textItemSubType;
         private System.Windows.Forms.TextBox textMass;

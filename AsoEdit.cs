@@ -18,14 +18,22 @@ namespace Sekai {
             InitializeComponent();
             PostInitialization(ViewItem);
             openFileDialog.FileOk += new CancelEventHandler(OpenFileOK);
+            InitializeAsoEdit();
         }
         public AsoEdit(Aso ViewItem) {
             this.ViewItem = ViewItem;
             InitializeComponent();
             PostInitialization(ViewItem);
             openFileDialog.FileOk += new CancelEventHandler(OpenFileOK);
+            InitializeAsoEdit();
         }
 
+        public void InitializeAsoEdit() {
+            InitializeList(listLocations, ViewItem.Locations, new string[] { "Name" });
+            InitializeList(listMembers, ViewItem.Members, new string[] { "Name", "Location", "CurrentlyDoing" });
+            InitializeList(listGroups, ViewItem.Groups, new string[] { "Name", "Location" });
+            InitializeStringList(listRanks, ViewItem.Ranks, ViewItem.HeadRanks);
+        }
         // ---------------- Methods ---------------- ---------------- //
         override public void OpenFileOK(object sender, CancelEventArgs e) {
             using (AsoEdit newEditor = new AsoEdit()) {

@@ -16,8 +16,9 @@ namespace Sekai {
         public int Mass { get; set; }
         public int Value { get; set; }
         public int Rarity { get; set; }
-        public int AttackBonus { get; set; }
         public int MagicLevel { get; set; }
+
+        public int AttackBonus { get; set; }
         #endregion
 
         #region Lists

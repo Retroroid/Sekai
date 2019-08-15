@@ -13,6 +13,8 @@ namespace Sekai {
         public List<Doh> RandomEvents { get; set; }
         #endregion
 
+        public Loc Location { get; set; }
+
         // ---------------- Constructors ---------------- ---------------- //
         public Evt() : base() {
             SubEvents = new List<Evt>();

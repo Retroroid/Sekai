@@ -33,6 +33,7 @@
             this.buttonDoh = new System.Windows.Forms.Button();
             this.buttonMdl = new System.Windows.Forms.Button();
             this.buttonEvt = new System.Windows.Forms.Button();
+            this.buttonTest = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonCha
@@ -144,11 +145,23 @@
             this.buttonEvt.UseVisualStyleBackColor = true;
             this.buttonEvt.Click += new System.EventHandler(this.ButtonEvt_Click);
             // 
+            // buttonTest
+            // 
+            this.buttonTest.Font = new System.Drawing.Font("Lucida Calligraphy", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonTest.Location = new System.Drawing.Point(624, 287);
+            this.buttonTest.Name = "buttonTest";
+            this.buttonTest.Size = new System.Drawing.Size(150, 65);
+            this.buttonTest.TabIndex = 10;
+            this.buttonTest.Text = "Test Button";
+            this.buttonTest.UseVisualStyleBackColor = true;
+            this.buttonTest.Click += new System.EventHandler(this.ButtonTest_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(877, 576);
+            this.Controls.Add(this.buttonTest);
             this.Controls.Add(this.buttonEvt);
             this.Controls.Add(this.buttonDoh);
             this.Controls.Add(this.buttonMdl);
@@ -178,5 +191,6 @@
         private System.Windows.Forms.Button buttonDoh;
         private System.Windows.Forms.Button buttonMdl;
         private System.Windows.Forms.Button buttonEvt;
+        private System.Windows.Forms.Button buttonTest;
     }
 }

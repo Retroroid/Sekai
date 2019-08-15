@@ -24,54 +24,54 @@
         /// </summary>
         private void InitializeComponent() {
             this.listEvents = new System.Windows.Forms.ListView();
-            this.textType = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.lablEvents = new System.Windows.Forms.Label();
+            this.lablCharacters = new System.Windows.Forms.Label();
+            this.listCharacters = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
             // listEvents
             // 
-            this.listEvents.Location = new System.Drawing.Point(951, 264);
+            this.listEvents.Location = new System.Drawing.Point(12, 408);
             this.listEvents.Name = "listEvents";
-            this.listEvents.Size = new System.Drawing.Size(601, 458);
+            this.listEvents.Size = new System.Drawing.Size(421, 314);
             this.listEvents.TabIndex = 111;
             this.listEvents.UseCompatibleStateImageBehavior = false;
-            // 
-            // textType
-            // 
-            this.textType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textType.Location = new System.Drawing.Point(1104, 115);
-            this.textType.Name = "textType";
-            this.textType.Size = new System.Drawing.Size(194, 26);
-            this.textType.TabIndex = 112;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(976, 115);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(122, 24);
-            this.label1.TabIndex = 113;
-            this.label1.Text = "Module Type";
             // 
             // lablEvents
             // 
             this.lablEvents.AutoSize = true;
             this.lablEvents.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lablEvents.Location = new System.Drawing.Point(948, 264);
+            this.lablEvents.Location = new System.Drawing.Point(9, 387);
             this.lablEvents.Name = "lablEvents";
             this.lablEvents.Size = new System.Drawing.Size(53, 18);
             this.lablEvents.TabIndex = 122;
             this.lablEvents.Text = "Events";
             // 
+            // lablCharacters
+            // 
+            this.lablCharacters.AutoSize = true;
+            this.lablCharacters.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lablCharacters.Location = new System.Drawing.Point(521, 387);
+            this.lablCharacters.Name = "lablCharacters";
+            this.lablCharacters.Size = new System.Drawing.Size(81, 18);
+            this.lablCharacters.TabIndex = 124;
+            this.lablCharacters.Text = "Characters";
+            // 
+            // listCharacters
+            // 
+            this.listCharacters.Location = new System.Drawing.Point(524, 408);
+            this.listCharacters.Name = "listCharacters";
+            this.listCharacters.Size = new System.Drawing.Size(421, 314);
+            this.listCharacters.TabIndex = 123;
+            this.listCharacters.UseCompatibleStateImageBehavior = false;
+            // 
             // MdlEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(1564, 734);
+            this.Controls.Add(this.lablCharacters);
+            this.Controls.Add(this.listCharacters);
             this.Controls.Add(this.lablEvents);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.textType);
             this.Controls.Add(this.listEvents);
             this.Name = "MdlEdit";
             this.Controls.SetChildIndex(this.listNotes, 0);
@@ -79,9 +79,9 @@
             this.Controls.SetChildIndex(this.textName, 0);
             this.Controls.SetChildIndex(this.textDescription, 0);
             this.Controls.SetChildIndex(this.listEvents, 0);
-            this.Controls.SetChildIndex(this.textType, 0);
-            this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.lablEvents, 0);
+            this.Controls.SetChildIndex(this.listCharacters, 0);
+            this.Controls.SetChildIndex(this.lablCharacters, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -90,8 +90,8 @@
         #endregion
 
         private System.Windows.Forms.ListView listEvents;
-        private System.Windows.Forms.TextBox textType;
-        private System.Windows.Forms.Label label1;
         public System.Windows.Forms.Label lablEvents;
+        public System.Windows.Forms.Label lablCharacters;
+        private System.Windows.Forms.ListView listCharacters;
     }
 }

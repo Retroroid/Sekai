@@ -7,15 +7,19 @@ using System.Threading.Tasks;
 namespace Sekai {
     public class Ghl : Fac {
         // ---------------- Variables ---------------- ---------------- //
+        #region Dot Lists
+        public List<Cha> CommonRoom { get; set; }
+        #endregion
+
         #region string[] Lists
         public List<string[]> Questboard { get; set; }
-
         public string[] HeadQuestboard { get; set; } = { "Rank", "Tags", "Details", "Timeframe", "Reward" };
         #endregion
 
         // ---------------- Constructors ---------------- ---------------- //
         public Ghl() : base() {
-            Questboard = new List<string[]> { HeadQuestboard };
+            CommonRoom = new List<Cha>();
+            Questboard = new List<string[]>();
         }
 
         // ---------------- Methods ---------------- ---------------- //

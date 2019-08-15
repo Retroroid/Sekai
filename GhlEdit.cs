@@ -18,16 +18,21 @@ namespace Sekai {
             InitializeComponent();
             PostInitialization(ViewItem);
             openFileDialog.FileOk += new CancelEventHandler(OpenFileOK);
-            //UpdateEditor();
+            InitializeGhl();
         }
         public GhlEdit(Ghl ViewItem) {
             this.ViewItem = ViewItem;
             InitializeComponent();
             PostInitialization(ViewItem);
             openFileDialog.FileOk += new CancelEventHandler(OpenFileOK);
-            //UpdateEditor();
+            InitializeGhl();
         }
-
+        private void InitializeGhl() {
+            InitializeList(listStaff, ViewItem.Staff, new string[] { "Name", "Shift", "CurrentlyDoing" });
+            InitializeList(listCommonRoom, ViewItem.CommonRoom, new string[] { "Name", "CurrentlyDoing" });
+            InitializeStringList(listQuestboard, ViewItem.Questboard, ViewItem.HeadQuestboard);
+            InitializeStringList(listServices, ViewItem.Services, ViewItem.HeadServices);
+        }
         // ---------------- Methods ---------------- ---------------- //
         override public void OpenFileOK(object sender, CancelEventArgs e) {
             using (GhlEdit newEditor = new GhlEdit()) {

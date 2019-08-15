@@ -44,10 +44,7 @@ namespace Sekai {
         }
         #endregion
 
-        #region CopyList
         public List<object> CopyList { get; set; }
-        public Type CopyType { get; set; } 
-        #endregion
 
         // ---------------- Constructors ---------------- ---------------- //
         public Dot() {
@@ -84,30 +81,47 @@ namespace Sekai {
         #endregion
 
         #region List Manipulation
+        public void CreateListItems<T>(List<T> Liste, int[] Indices) {
+            int index = 0;
+            do {
+                var x = (T)Activator.CreateInstance(typeof(T));
+                Liste.Add(x);
+                index++;
+            } while (index < Indices.Length);
+        }
         public void CopyListItems<T>(List<T> Liste, int[] Indices) {
             CopyList = new List<object>();
-            CopyType = typeof(T);
-            foreach(int i in Indices) {
+            foreach (int i in Indices) {
                 CopyList.Add(Liste[i]);
             }
         }
         public void PasteListItems<T>(List<T> Liste, int[] Indices) {
-            if (!CopyType.Equals(typeof(T)) ) throw new Exception("CopyList type and Overwrite type do not match!");
-            for(int i = 0; i < CopyList.Count && i < Indices.Length; i++) {
-                //Liste[Indices[i]] = CopyList[i]
+            for (int i = 0; i < CopyList.Count && i < Indices.Length; i++) {
+                Liste[Indices[i]] = (T)Convert.ChangeType(CopyList[i], typeof(T));
+            }
+        }
+        public void DeleteListItems<T>(List<T> Liste, int[] Indices) {
+            List<int> Index = Indices.ToList<int>();
+            Index.Sort();
+            for (int i = 0; i < Indices.Length && Index.Count != 0; i++) {
+                Liste.RemoveAt(Index[Index.Count - 1]);
+                Index.RemoveAt(Index.Count - 1);
             }
         }
         #endregion
 
         public ListViewItem DotAsLVI(string[] IncludeTheseFields) {
-            ListViewItem lvi = new ListViewItem(Name);
-            foreach(string st in IncludeTheseFields) {
-                lvi.SubItems.Add(GetPropertyByName(st));
+            if (IncludeTheseFields.Length == 0) throw new Exception("Included fields cannot be empty.");
+            ListViewItem lvi = new ListViewItem(GetPropertyByName(IncludeTheseFields[0]));
+            for(int i = 1; i < IncludeTheseFields.Length; i++){
+                lvi.SubItems.Add((string)GetPropertyByName(IncludeTheseFields[i]));
             }
-            lvi.SubItems.Add(ID);
             return lvi;
         }
-        
+        public void OpenEditor() {
+            this.OpenEditore();
+        }
+
         // ---------------- Meta-Methods ---------------- ---------------- //
         public int CompareTo(Dot obj) {
             // CompareTo for sorting implementation.

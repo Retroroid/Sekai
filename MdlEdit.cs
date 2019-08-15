@@ -18,16 +18,19 @@ namespace Sekai {
             InitializeComponent();
             PostInitialization(ViewItem);
             openFileDialog.FileOk += new CancelEventHandler(OpenFileOK);
-            //UpdateEditor();
+            InitializeMdl();
         }
         public MdlEdit(Mdl ViewItem) {
             this.ViewItem = ViewItem;
             InitializeComponent();
             PostInitialization(ViewItem);
             openFileDialog.FileOk += new CancelEventHandler(OpenFileOK);
-            //UpdateEditor();
+            InitializeMdl();
         }
-
+        private void InitializeMdl() {
+            InitializeList(listEvents, ViewItem.Events, new string[] { "Name", "Location" });
+            InitializeList(listCharacters, ViewItem.Characters, new string[] { "Name" });
+        }
         // ---------------- Methods ---------------- ---------------- //
         override public void OpenFileOK(object sender, CancelEventArgs e) {
             using (MdlEdit newEditor = new MdlEdit()) {

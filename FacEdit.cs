@@ -18,16 +18,22 @@ namespace Sekai {
             InitializeComponent();
             PostInitialization(ViewItem);
             openFileDialog.FileOk += new CancelEventHandler(OpenFileOK);
-            //UpdateEditor();
+            InitialzieFac();
         }
         public FacEdit(Fac ViewItem) {
             this.ViewItem = ViewItem;
             InitializeComponent();
             PostInitialization(ViewItem);
             openFileDialog.FileOk += new CancelEventHandler(OpenFileOK);
-            //UpdateEditor();
+            InitialzieFac();
         }
-
+        private void InitialzieFac() {
+            InitializeList(listStaff, ViewItem.Staff, new string[] { "Name", "Shift", "CurrentlyDoing" });
+            InitializeList(listClients, ViewItem.Clients, new string[] { "Name", "Location", "CurrentlyDoing" });
+            InitializeStringList(listServices, ViewItem.Services, ViewItem.HeadServices);
+            InitializeTextBox(textLocation);
+            InitializeTextBox(textFocus);
+        }
         // ---------------- Methods ---------------- ---------------- //
         override public void OpenFileOK(object sender, CancelEventArgs e) {
             using (FacEdit newEditor = new FacEdit()) {

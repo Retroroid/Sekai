@@ -37,36 +37,36 @@
             // listMembers
             // 
             this.listMembers.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listMembers.Location = new System.Drawing.Point(951, 481);
+            this.listMembers.Location = new System.Drawing.Point(951, 492);
             this.listMembers.Name = "listMembers";
-            this.listMembers.Size = new System.Drawing.Size(601, 274);
+            this.listMembers.Size = new System.Drawing.Size(601, 263);
             this.listMembers.TabIndex = 118;
             this.listMembers.UseCompatibleStateImageBehavior = false;
             // 
             // listGroups
             // 
             this.listGroups.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listGroups.Location = new System.Drawing.Point(951, 203);
+            this.listGroups.Location = new System.Drawing.Point(951, 218);
             this.listGroups.Name = "listGroups";
-            this.listGroups.Size = new System.Drawing.Size(601, 274);
+            this.listGroups.Size = new System.Drawing.Size(605, 250);
             this.listGroups.TabIndex = 117;
             this.listGroups.UseCompatibleStateImageBehavior = false;
             // 
             // listRanks
             // 
             this.listRanks.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listRanks.Location = new System.Drawing.Point(12, 481);
+            this.listRanks.Location = new System.Drawing.Point(12, 492);
             this.listRanks.Name = "listRanks";
-            this.listRanks.Size = new System.Drawing.Size(933, 274);
+            this.listRanks.Size = new System.Drawing.Size(933, 263);
             this.listRanks.TabIndex = 116;
             this.listRanks.UseCompatibleStateImageBehavior = false;
             // 
             // listLocations
             // 
             this.listLocations.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listLocations.Location = new System.Drawing.Point(951, 98);
+            this.listLocations.Location = new System.Drawing.Point(951, 114);
             this.listLocations.Name = "listLocations";
-            this.listLocations.Size = new System.Drawing.Size(601, 99);
+            this.listLocations.Size = new System.Drawing.Size(601, 83);
             this.listLocations.TabIndex = 115;
             this.listLocations.UseCompatibleStateImageBehavior = false;
             // 
@@ -84,7 +84,7 @@
             // 
             this.lablRanks.AutoSize = true;
             this.lablRanks.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lablRanks.Location = new System.Drawing.Point(9, 481);
+            this.lablRanks.Location = new System.Drawing.Point(12, 471);
             this.lablRanks.Name = "lablRanks";
             this.lablRanks.Size = new System.Drawing.Size(51, 18);
             this.lablRanks.TabIndex = 120;
@@ -94,7 +94,7 @@
             // 
             this.lablMembers.AutoSize = true;
             this.lablMembers.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lablMembers.Location = new System.Drawing.Point(948, 480);
+            this.lablMembers.Location = new System.Drawing.Point(946, 471);
             this.lablMembers.Name = "lablMembers";
             this.lablMembers.Size = new System.Drawing.Size(71, 18);
             this.lablMembers.TabIndex = 121;
@@ -104,7 +104,7 @@
             // 
             this.lablGroups.AutoSize = true;
             this.lablGroups.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lablGroups.Location = new System.Drawing.Point(948, 200);
+            this.lablGroups.Location = new System.Drawing.Point(952, 197);
             this.lablGroups.Name = "lablGroups";
             this.lablGroups.Size = new System.Drawing.Size(58, 18);
             this.lablGroups.TabIndex = 122;
@@ -114,7 +114,7 @@
             // 
             this.lablLocations.AutoSize = true;
             this.lablLocations.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lablLocations.Location = new System.Drawing.Point(946, 95);
+            this.lablLocations.Location = new System.Drawing.Point(946, 93);
             this.lablLocations.Name = "lablLocations";
             this.lablLocations.Size = new System.Drawing.Size(73, 18);
             this.lablLocations.TabIndex = 123;

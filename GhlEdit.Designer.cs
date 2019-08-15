@@ -35,33 +35,33 @@
             // 
             // listQuestboard
             // 
-            this.listQuestboard.Location = new System.Drawing.Point(12, 381);
+            this.listQuestboard.Location = new System.Drawing.Point(12, 399);
             this.listQuestboard.Name = "listQuestboard";
-            this.listQuestboard.Size = new System.Drawing.Size(933, 341);
+            this.listQuestboard.Size = new System.Drawing.Size(933, 323);
             this.listQuestboard.TabIndex = 111;
             this.listQuestboard.UseCompatibleStateImageBehavior = false;
             // 
             // listCommonRoom
             // 
-            this.listCommonRoom.Location = new System.Drawing.Point(951, 503);
+            this.listCommonRoom.Location = new System.Drawing.Point(951, 521);
             this.listCommonRoom.Name = "listCommonRoom";
-            this.listCommonRoom.Size = new System.Drawing.Size(601, 219);
+            this.listCommonRoom.Size = new System.Drawing.Size(601, 201);
             this.listCommonRoom.TabIndex = 112;
             this.listCommonRoom.UseCompatibleStateImageBehavior = false;
             // 
             // listStaff
             // 
-            this.listStaff.Location = new System.Drawing.Point(951, 98);
+            this.listStaff.Location = new System.Drawing.Point(951, 116);
             this.listStaff.Name = "listStaff";
-            this.listStaff.Size = new System.Drawing.Size(601, 159);
+            this.listStaff.Size = new System.Drawing.Size(601, 141);
             this.listStaff.TabIndex = 113;
             this.listStaff.UseCompatibleStateImageBehavior = false;
             // 
             // listServices
             // 
-            this.listServices.Location = new System.Drawing.Point(951, 263);
+            this.listServices.Location = new System.Drawing.Point(951, 281);
             this.listServices.Name = "listServices";
-            this.listServices.Size = new System.Drawing.Size(601, 159);
+            this.listServices.Size = new System.Drawing.Size(601, 141);
             this.listServices.TabIndex = 114;
             this.listServices.UseCompatibleStateImageBehavior = false;
             // 

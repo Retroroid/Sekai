@@ -18,16 +18,25 @@ namespace Sekai {
             InitializeComponent();
             PostInitialization(ViewItem);
             openFileDialog.FileOk += new CancelEventHandler(OpenFileOK);
-            //UpdateEditor();
+            InitializeItm();
         }
         public ItmEdit(Itm ViewItem) {
             this.ViewItem = ViewItem;
             InitializeComponent();
             PostInitialization(ViewItem);
             openFileDialog.FileOk += new CancelEventHandler(OpenFileOK);
-            //UpdateEditor();
+            InitializeItm();
         }
-
+        private void InitializeItm() {
+            InitializeStringList(listItemTags, ViewItem.ItemTags, ViewItem.HeadItemTags);
+            InitializeStringList(listRolls, ViewItem.Rolls, ViewItem.HeadRolls);
+            InitializeTextBox(textItemType);
+            InitializeTextBox(textItemSubType);
+            InitializeTextBoxNumerical(textMass);
+            InitializeTextBoxNumerical(textValue);
+            InitializeTextBoxNumerical(textMagicLevel);
+            InitializeTextBoxNumerical(textRarity);
+        }
         // ---------------- Methods ---------------- ---------------- //
         override public void OpenFileOK(object sender, CancelEventArgs e) {
             using (ItmEdit newEditor = new ItmEdit()) {

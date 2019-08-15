@@ -38,32 +38,32 @@
             // 
             // listStaff
             // 
-            this.listStaff.Location = new System.Drawing.Point(530, 381);
+            this.listStaff.Location = new System.Drawing.Point(530, 399);
             this.listStaff.Name = "listStaff";
-            this.listStaff.Size = new System.Drawing.Size(504, 341);
+            this.listStaff.Size = new System.Drawing.Size(504, 323);
             this.listStaff.TabIndex = 111;
             this.listStaff.UseCompatibleStateImageBehavior = false;
             // 
             // listServices
             // 
-            this.listServices.Location = new System.Drawing.Point(12, 381);
+            this.listServices.Location = new System.Drawing.Point(12, 399);
             this.listServices.Name = "listServices";
-            this.listServices.Size = new System.Drawing.Size(504, 341);
+            this.listServices.Size = new System.Drawing.Size(504, 323);
             this.listServices.TabIndex = 112;
             this.listServices.UseCompatibleStateImageBehavior = false;
             // 
             // listClients
             // 
-            this.listClients.Location = new System.Drawing.Point(1048, 381);
+            this.listClients.Location = new System.Drawing.Point(1048, 399);
             this.listClients.Name = "listClients";
-            this.listClients.Size = new System.Drawing.Size(504, 341);
+            this.listClients.Size = new System.Drawing.Size(504, 323);
             this.listClients.TabIndex = 113;
             this.listClients.UseCompatibleStateImageBehavior = false;
             // 
             // textLocation
             // 
             this.textLocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textLocation.Location = new System.Drawing.Point(951, 146);
+            this.textLocation.Location = new System.Drawing.Point(951, 125);
             this.textLocation.Name = "textLocation";
             this.textLocation.Size = new System.Drawing.Size(247, 31);
             this.textLocation.TabIndex = 114;
@@ -71,17 +71,17 @@
             // textFocus
             // 
             this.textFocus.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textFocus.Location = new System.Drawing.Point(955, 254);
+            this.textFocus.Location = new System.Drawing.Point(951, 310);
             this.textFocus.Multiline = true;
             this.textFocus.Name = "textFocus";
-            this.textFocus.Size = new System.Drawing.Size(243, 65);
+            this.textFocus.Size = new System.Drawing.Size(247, 65);
             this.textFocus.TabIndex = 115;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(951, 119);
+            this.label1.Location = new System.Drawing.Point(951, 98);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(81, 24);
             this.label1.TabIndex = 116;
@@ -91,7 +91,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(955, 227);
+            this.label2.Location = new System.Drawing.Point(951, 283);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 24);
             this.label2.TabIndex = 117;
