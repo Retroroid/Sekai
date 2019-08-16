@@ -23,78 +23,6 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
-            "Acrobatics",
-            "0",
-            "DEX"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.Empty, new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))));
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
-            "Animal Handling",
-            "0",
-            "WIS"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.Empty, new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))));
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem(new string[] {
-            "Arcana",
-            "0",
-            "INT"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.Empty, new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))));
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem(new string[] {
-            "Athletics",
-            "0",
-            "STR"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.Empty, new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))));
-            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem(new string[] {
-            "Deception",
-            "0",
-            "CHA"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.Empty, new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))));
-            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem(new string[] {
-            "History",
-            "0",
-            "INT"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.Empty, new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))));
-            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem(new string[] {
-            "Insight",
-            "0",
-            "WIS"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.Empty, new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))));
-            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem(new string[] {
-            "Intimidation",
-            "0",
-            "CHA"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.Empty, new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))));
-            System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem(new string[] {
-            "Investigation",
-            "0",
-            "INT"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.Empty, new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))));
-            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem(new string[] {
-            "Medicine",
-            "0",
-            "WIS"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.Empty, new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))));
-            System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem(new string[] {
-            "Nature",
-            "0",
-            "INT"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.Empty, new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))));
-            System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem(new string[] {
-            "Perception",
-            "0",
-            "WIS"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.Empty, new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))));
-            System.Windows.Forms.ListViewItem listViewItem13 = new System.Windows.Forms.ListViewItem(new string[] {
-            "Performance",
-            "0",
-            "CHA"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.Empty, new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))));
-            System.Windows.Forms.ListViewItem listViewItem14 = new System.Windows.Forms.ListViewItem(new string[] {
-            "Persuasion",
-            "0",
-            "CHA"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.Empty, new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))));
-            System.Windows.Forms.ListViewItem listViewItem15 = new System.Windows.Forms.ListViewItem(new string[] {
-            "Religion",
-            "0",
-            "INT"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.Empty, new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))));
-            System.Windows.Forms.ListViewItem listViewItem16 = new System.Windows.Forms.ListViewItem(new string[] {
-            "Sleight of Hand",
-            "0",
-            "DEX"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.Empty, new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))));
-            System.Windows.Forms.ListViewItem listViewItem17 = new System.Windows.Forms.ListViewItem(new string[] {
-            "Stealth",
-            "0",
-            "DEX"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.Empty, new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))));
-            System.Windows.Forms.ListViewItem listViewItem18 = new System.Windows.Forms.ListViewItem(new string[] {
-            "Survival",
-            "0",
-            "WIS"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.Empty, new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))));
             this.listAbilities = new System.Windows.Forms.ListView();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -135,13 +63,9 @@
             this.labelProfPlus = new System.Windows.Forms.Label();
             this.labelProf = new System.Windows.Forms.Label();
             this.textPB = new System.Windows.Forms.TextBox();
-            this.textHP1 = new System.Windows.Forms.TextBox();
-            this.textHP0 = new System.Windows.Forms.TextBox();
+            this.textHPMax = new System.Windows.Forms.TextBox();
+            this.textHPCurrent = new System.Windows.Forms.TextBox();
             this.labelHPSlash = new System.Windows.Forms.Label();
-            this.listSkills = new System.Windows.Forms.ListView();
-            this.columnSkill = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnBonus = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnBaseScore = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupAbilityScore = new System.Windows.Forms.GroupBox();
             this.lablCCHA = new System.Windows.Forms.Label();
             this.lablCDEX = new System.Windows.Forms.Label();
@@ -154,15 +78,16 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.labelAccolades = new System.Windows.Forms.Label();
+            this.listSkills = new System.Windows.Forms.ListView();
             this.groupAbilityScore.SuspendLayout();
             this.groupNumericals.SuspendLayout();
             this.SuspendLayout();
             // 
             // listAbilities
             // 
-            this.listAbilities.Location = new System.Drawing.Point(483, 561);
+            this.listAbilities.Location = new System.Drawing.Point(352, 574);
             this.listAbilities.Name = "listAbilities";
-            this.listAbilities.Size = new System.Drawing.Size(462, 174);
+            this.listAbilities.Size = new System.Drawing.Size(358, 161);
             this.listAbilities.TabIndex = 114;
             this.listAbilities.UseCompatibleStateImageBehavior = false;
             this.listAbilities.View = System.Windows.Forms.View.Details;
@@ -170,7 +95,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(480, 558);
+            this.label9.Location = new System.Drawing.Point(349, 558);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(42, 13);
             this.label9.TabIndex = 128;
@@ -179,7 +104,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(480, 378);
+            this.label8.Location = new System.Drawing.Point(349, 378);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(43, 13);
             this.label8.TabIndex = 138;
@@ -187,9 +112,9 @@
             // 
             // listAttacks
             // 
-            this.listAttacks.Location = new System.Drawing.Point(483, 381);
+            this.listAttacks.Location = new System.Drawing.Point(352, 394);
             this.listAttacks.Name = "listAttacks";
-            this.listAttacks.Size = new System.Drawing.Size(462, 174);
+            this.listAttacks.Size = new System.Drawing.Size(358, 161);
             this.listAttacks.TabIndex = 137;
             this.listAttacks.UseCompatibleStateImageBehavior = false;
             this.listAttacks.View = System.Windows.Forms.View.Details;
@@ -205,9 +130,9 @@
             // 
             // listAccolades
             // 
-            this.listAccolades.Location = new System.Drawing.Point(951, 561);
+            this.listAccolades.Location = new System.Drawing.Point(716, 574);
             this.listAccolades.Name = "listAccolades";
-            this.listAccolades.Size = new System.Drawing.Size(380, 175);
+            this.listAccolades.Size = new System.Drawing.Size(395, 162);
             this.listAccolades.TabIndex = 139;
             this.listAccolades.UseCompatibleStateImageBehavior = false;
             this.listAccolades.View = System.Windows.Forms.View.Details;
@@ -223,9 +148,9 @@
             // 
             // listInventory
             // 
-            this.listInventory.Location = new System.Drawing.Point(12, 381);
+            this.listInventory.Location = new System.Drawing.Point(12, 394);
             this.listInventory.Name = "listInventory";
-            this.listInventory.Size = new System.Drawing.Size(465, 355);
+            this.listInventory.Size = new System.Drawing.Size(334, 342);
             this.listInventory.TabIndex = 141;
             this.listInventory.UseCompatibleStateImageBehavior = false;
             this.listInventory.View = System.Windows.Forms.View.Details;
@@ -233,7 +158,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(1168, 362);
+            this.label10.Location = new System.Drawing.Point(757, 447);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(92, 13);
             this.label10.TabIndex = 149;
@@ -573,25 +498,25 @@
             this.textPB.Text = "2";
             this.textPB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textHP1
+            // textHPMax
             // 
-            this.textHP1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textHP1.Location = new System.Drawing.Point(142, 44);
-            this.textHP1.Name = "textHP1";
-            this.textHP1.Size = new System.Drawing.Size(55, 35);
-            this.textHP1.TabIndex = 14;
-            this.textHP1.Text = "10";
-            this.textHP1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textHPMax.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textHPMax.Location = new System.Drawing.Point(142, 44);
+            this.textHPMax.Name = "textHPMax";
+            this.textHPMax.Size = new System.Drawing.Size(55, 35);
+            this.textHPMax.TabIndex = 14;
+            this.textHPMax.Text = "10";
+            this.textHPMax.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textHP0
+            // textHPCurrent
             // 
-            this.textHP0.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textHP0.Location = new System.Drawing.Point(38, 44);
-            this.textHP0.Name = "textHP0";
-            this.textHP0.Size = new System.Drawing.Size(55, 35);
-            this.textHP0.TabIndex = 12;
-            this.textHP0.Text = "10";
-            this.textHP0.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textHPCurrent.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textHPCurrent.Location = new System.Drawing.Point(38, 44);
+            this.textHPCurrent.Name = "textHPCurrent";
+            this.textHPCurrent.Size = new System.Drawing.Size(55, 35);
+            this.textHPCurrent.TabIndex = 12;
+            this.textHPCurrent.Text = "10";
+            this.textHPCurrent.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // labelHPSlash
             // 
@@ -602,74 +527,6 @@
             this.labelHPSlash.Size = new System.Drawing.Size(37, 55);
             this.labelHPSlash.TabIndex = 15;
             this.labelHPSlash.Text = "/";
-            // 
-            // listSkills
-            // 
-            this.listSkills.CheckBoxes = true;
-            this.listSkills.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnSkill,
-            this.columnBonus,
-            this.columnBaseScore});
-            this.listSkills.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listSkills.GridLines = true;
-            listViewItem1.StateImageIndex = 0;
-            listViewItem2.StateImageIndex = 0;
-            listViewItem3.StateImageIndex = 0;
-            listViewItem4.StateImageIndex = 0;
-            listViewItem5.StateImageIndex = 0;
-            listViewItem6.StateImageIndex = 0;
-            listViewItem7.StateImageIndex = 0;
-            listViewItem8.StateImageIndex = 0;
-            listViewItem9.StateImageIndex = 0;
-            listViewItem10.StateImageIndex = 0;
-            listViewItem11.StateImageIndex = 0;
-            listViewItem12.StateImageIndex = 0;
-            listViewItem13.StateImageIndex = 0;
-            listViewItem14.StateImageIndex = 0;
-            listViewItem15.StateImageIndex = 0;
-            listViewItem16.StateImageIndex = 0;
-            listViewItem17.StateImageIndex = 0;
-            listViewItem18.StateImageIndex = 0;
-            this.listSkills.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2,
-            listViewItem3,
-            listViewItem4,
-            listViewItem5,
-            listViewItem6,
-            listViewItem7,
-            listViewItem8,
-            listViewItem9,
-            listViewItem10,
-            listViewItem11,
-            listViewItem12,
-            listViewItem13,
-            listViewItem14,
-            listViewItem15,
-            listViewItem16,
-            listViewItem17,
-            listViewItem18});
-            this.listSkills.Location = new System.Drawing.Point(1337, 309);
-            this.listSkills.Name = "listSkills";
-            this.listSkills.Size = new System.Drawing.Size(215, 426);
-            this.listSkills.TabIndex = 197;
-            this.listSkills.UseCompatibleStateImageBehavior = false;
-            this.listSkills.View = System.Windows.Forms.View.Details;
-            // 
-            // columnSkill
-            // 
-            this.columnSkill.Text = "Skill";
-            this.columnSkill.Width = 124;
-            // 
-            // columnBonus
-            // 
-            this.columnBonus.Text = "+";
-            this.columnBonus.Width = 34;
-            // 
-            // columnBaseScore
-            // 
-            this.columnBaseScore.Text = "By";
-            this.columnBaseScore.Width = 53;
             // 
             // groupAbilityScore
             // 
@@ -792,8 +649,8 @@
             this.groupNumericals.Controls.Add(this.labelAC);
             this.groupNumericals.Controls.Add(this.label2);
             this.groupNumericals.Controls.Add(this.label1);
-            this.groupNumericals.Controls.Add(this.textHP1);
-            this.groupNumericals.Controls.Add(this.textHP0);
+            this.groupNumericals.Controls.Add(this.textHPMax);
+            this.groupNumericals.Controls.Add(this.textHPCurrent);
             this.groupNumericals.Controls.Add(this.textAC);
             this.groupNumericals.Controls.Add(this.textSpeed);
             this.groupNumericals.Controls.Add(this.textPB);
@@ -829,21 +686,29 @@
             // labelAccolades
             // 
             this.labelAccolades.AutoSize = true;
-            this.labelAccolades.Location = new System.Drawing.Point(950, 558);
+            this.labelAccolades.Location = new System.Drawing.Point(713, 558);
             this.labelAccolades.Name = "labelAccolades";
             this.labelAccolades.Size = new System.Drawing.Size(57, 13);
             this.labelAccolades.TabIndex = 201;
             this.labelAccolades.Text = "Accolades";
             // 
+            // listSkills
+            // 
+            this.listSkills.Location = new System.Drawing.Point(1238, 309);
+            this.listSkills.Name = "listSkills";
+            this.listSkills.Size = new System.Drawing.Size(307, 421);
+            this.listSkills.TabIndex = 202;
+            this.listSkills.UseCompatibleStateImageBehavior = false;
+            // 
             // ChaEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(1557, 742);
+            this.Controls.Add(this.listSkills);
             this.Controls.Add(this.labelAccolades);
             this.Controls.Add(this.groupNumericals);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.textCurrentlyDoing);
-            this.Controls.Add(this.listSkills);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.listInventory);
@@ -866,12 +731,12 @@
             this.Controls.SetChildIndex(this.label10, 0);
             this.Controls.SetChildIndex(this.listNotes, 0);
             this.Controls.SetChildIndex(this.textName, 0);
-            this.Controls.SetChildIndex(this.listSkills, 0);
             this.Controls.SetChildIndex(this.textCurrentlyDoing, 0);
             this.Controls.SetChildIndex(this.label6, 0);
             this.Controls.SetChildIndex(this.groupNumericals, 0);
             this.Controls.SetChildIndex(this.textDescription, 0);
             this.Controls.SetChildIndex(this.labelAccolades, 0);
+            this.Controls.SetChildIndex(this.listSkills, 0);
             this.groupAbilityScore.ResumeLayout(false);
             this.groupAbilityScore.PerformLayout();
             this.groupNumericals.ResumeLayout(false);
@@ -922,13 +787,9 @@
         private System.Windows.Forms.Label labelProfPlus;
         private System.Windows.Forms.Label labelProf;
         private System.Windows.Forms.TextBox textPB;
-        private System.Windows.Forms.TextBox textHP1;
-        private System.Windows.Forms.TextBox textHP0;
+        private System.Windows.Forms.TextBox textHPMax;
+        private System.Windows.Forms.TextBox textHPCurrent;
         private System.Windows.Forms.Label labelHPSlash;
-        private System.Windows.Forms.ListView listSkills;
-        private System.Windows.Forms.ColumnHeader columnSkill;
-        private System.Windows.Forms.ColumnHeader columnBonus;
-        private System.Windows.Forms.ColumnHeader columnBaseScore;
         private System.Windows.Forms.GroupBox groupAbilityScore;
         private System.Windows.Forms.TextBox textCurrentlyDoing;
         private System.Windows.Forms.GroupBox groupNumericals;
@@ -941,5 +802,6 @@
         private System.Windows.Forms.Label lablCINT;
         private System.Windows.Forms.Label lablCWIS;
         private System.Windows.Forms.Label lablCSTR;
+        private System.Windows.Forms.ListView listSkills;
     }
 }

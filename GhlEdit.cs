@@ -32,14 +32,14 @@ namespace Sekai {
             InitializeList(listCommonRoom, ViewItem.CommonRoom, new string[] { "Name", "CurrentlyDoing" });
             InitializeStringList(listQuestboard, ViewItem.Questboard, ViewItem.HeadQuestboard);
             InitializeStringList(listServices, ViewItem.Services, ViewItem.HeadServices);
+            RegControlUpdateView();
         }
         // ---------------- Methods ---------------- ---------------- //
         override public void OpenFileOK(object sender, CancelEventArgs e) {
-            using (GhlEdit newEditor = new GhlEdit()) {
-                ViewItem = Dot.LoadFileRaw((sender as OpenFileDialog).FileName, ViewItem);
-                //newEditor.UpdateEditor();
-                newEditor.Show();
-            }
+#pragma warning disable IDE0067 // Dispose objects before losing scope
+            GhlEdit newEditor = new GhlEdit(Dot.LoadFileRaw((sender as OpenFileDialog).FileName, ViewItem));
+#pragma warning restore IDE0067 // Dispose objects before losing scope
+            newEditor.Show();
         }
         // ---------------- ---------------- ---------------- ---------------- ---------------- //
     } // End of class

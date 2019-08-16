@@ -17,6 +17,7 @@ namespace Sekai {
         public int Value { get; set; }
         public int Rarity { get; set; }
         public int MagicLevel { get; set; }
+        public int Quantity { get; set; }
 
         public int AttackBonus { get; set; }
         #endregion

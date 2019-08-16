@@ -33,15 +33,15 @@ namespace Sekai {
             InitializeList(listMembers, ViewItem.Members, new string[] { "Name", "Location", "CurrentlyDoing" });
             InitializeList(listGroups, ViewItem.Groups, new string[] { "Name", "Location" });
             InitializeStringList(listRanks, ViewItem.Ranks, ViewItem.HeadRanks);
+            RegControlUpdateView();
         }
         // ---------------- Methods ---------------- ---------------- //
         override public void OpenFileOK(object sender, CancelEventArgs e) {
-            using (AsoEdit newEditor = new AsoEdit()) {
-                ViewItem = Dot.LoadFileRaw((sender as OpenFileDialog).FileName, ViewItem);
-                newEditor.Show();
-            }
+#pragma warning disable IDE0067 // Dispose objects before losing scope
+            AsoEdit newEditor = new AsoEdit(Dot.LoadFileRaw((sender as OpenFileDialog).FileName, ViewItem));
+#pragma warning restore IDE0067 // Dispose objects before losing scope
+            newEditor.Show();
         }
-
         // ---------------- ---------------- ---------------- ---------------- ---------------- //
     } // End of class
 } // End of namespace

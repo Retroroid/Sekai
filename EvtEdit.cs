@@ -31,14 +31,14 @@ namespace Sekai {
             InitializeList(listSubEvents, ViewItem.SubEvents, new string[] { "Name", "Location" } );
             InitializeList(listCharacters, ViewItem.Characters, new string[] { "Name" });
             InitializeList(listRandomEvents, ViewItem.RandomEvents, new string[] { "Name" });
+            RegControlUpdateView();
         }
         // ---------------- Methods ---------------- ---------------- //
         override public void OpenFileOK(object sender, CancelEventArgs e) {
-            using (EvtEdit newEditor = new EvtEdit()) {
-                ViewItem = Dot.LoadFileRaw((sender as OpenFileDialog).FileName, ViewItem);
-                //newEditor.UpdateEditor();
-                newEditor.Show();
-            }
+#pragma warning disable IDE0067 // Dispose objects before losing scope
+            EvtEdit newEditor = new EvtEdit(Dot.LoadFileRaw((sender as OpenFileDialog).FileName, ViewItem));
+#pragma warning restore IDE0067 // Dispose objects before losing scope
+            newEditor.Show();
         }
         // ---------------- ---------------- ---------------- ---------------- ---------------- //
     } // End of class

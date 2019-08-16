@@ -139,7 +139,7 @@ namespace Sekai {
             if (IncludeTheseFields.Length == 0) throw new Exception("Included fields cannot be empty.");
             ListViewItem lvi = new ListViewItem(GetPropertyByName(IncludeTheseFields[0]));
             for(int i = 1; i < IncludeTheseFields.Length; i++){
-                lvi.SubItems.Add((string)GetPropertyByName(IncludeTheseFields[i]));
+                lvi.SubItems.Add(GetPropertyByName(IncludeTheseFields[i]).ToString());
             }
             return lvi;
         }

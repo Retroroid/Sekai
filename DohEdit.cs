@@ -24,6 +24,8 @@ namespace Sekai {
         }
         private void InitialzieDoh() {
             // TODO
+
+            RegControlUpdateView();
         }
         // ---------------- Methods ---------------- ---------------- //
         public void AddSomeData() {
@@ -39,16 +41,14 @@ namespace Sekai {
             ViewItem.Elements.Add(new Sekai.Element(Database.RNG.Next(60), "Element 10"));
             listElements.Update();
         }
-            
+
         // ---------------- Meta-Methods ---------------- ---------------- //
         override public void OpenFileOK(object sender, CancelEventArgs e) {
-            using (DohEdit newEditor = new DohEdit()) {
-                ViewItem = Dot.LoadFileRaw((sender as OpenFileDialog).FileName, ViewItem);
-                //newEditor.UpdateEditor();
-                newEditor.Show();
-            }
+#pragma warning disable IDE0067 // Dispose objects before losing scope
+            DohEdit newEditor = new DohEdit(Dot.LoadFileRaw((sender as OpenFileDialog).FileName, ViewItem));
+#pragma warning restore IDE0067 // Dispose objects before losing scope
+            newEditor.Show();
         }
-
         // ---------------- ---------------- ---------------- ---------------- ---------------- //
     } // End of class
 } // End of namespace

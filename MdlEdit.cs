@@ -30,15 +30,15 @@ namespace Sekai {
         private void InitializeMdl() {
             InitializeList(listEvents, ViewItem.Events, new string[] { "Name", "Location" });
             InitializeList(listCharacters, ViewItem.Characters, new string[] { "Name" });
+            RegControlUpdateView();
         }
         // ---------------- Methods ---------------- ---------------- //
         override public void OpenFileOK(object sender, CancelEventArgs e) {
-            using (MdlEdit newEditor = new MdlEdit()) {
-                ViewItem = Dot.LoadFileRaw((sender as OpenFileDialog).FileName, ViewItem);
-                newEditor.Show();
-            }
+#pragma warning disable IDE0067 // Dispose objects before losing scope
+            MdlEdit newEditor = new MdlEdit(Dot.LoadFileRaw((sender as OpenFileDialog).FileName, ViewItem));
+#pragma warning restore IDE0067 // Dispose objects before losing scope
+            newEditor.Show();
         }
-
         // ---------------- ---------------- ---------------- ---------------- ---------------- //
     } // End of class
 } // End of namespace

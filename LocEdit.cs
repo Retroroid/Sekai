@@ -33,14 +33,14 @@ namespace Sekai {
             InitializeList(listFacilities, ViewItem.Facilities, new string[] { "Name", "Focus" });
             InitializeList(listCharacters, ViewItem.Characters, new string[] { "Name", "Shift" });
             InitializeTextBox(textLocationPath);
+            RegControlUpdateView();
         }
         // ---------------- Methods ---------------- ---------------- //
         override public void OpenFileOK(object sender, CancelEventArgs e) {
-            using (LocEdit newEditor = new LocEdit()) {
-                ViewItem = Dot.LoadFileRaw((sender as OpenFileDialog).FileName, ViewItem);
-                //newEditor.UpdateEditor();
-                newEditor.Show();
-            }
+#pragma warning disable IDE0067 // Dispose objects before losing scope
+            LocEdit newEditor = new LocEdit(Dot.LoadFileRaw((sender as OpenFileDialog).FileName, ViewItem));
+#pragma warning restore IDE0067 // Dispose objects before losing scope
+            newEditor.Show();
         }
 
         // ---------------- ---------------- ---------------- ---------------- ---------------- //

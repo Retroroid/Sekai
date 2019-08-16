@@ -171,7 +171,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1564, 734);
+            this.ClientSize = new System.Drawing.Size(1564, 757);
             this.Controls.Add(this.NotesLabel);
             this.Controls.Add(this.textDescription);
             this.Controls.Add(this.textName);

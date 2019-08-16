@@ -33,14 +33,14 @@ namespace Sekai {
             InitializeStringList(listServices, ViewItem.Services, ViewItem.HeadServices);
             InitializeTextBox(textLocation);
             InitializeTextBox(textFocus);
+            RegControlUpdateView();
         }
         // ---------------- Methods ---------------- ---------------- //
         override public void OpenFileOK(object sender, CancelEventArgs e) {
-            using (FacEdit newEditor = new FacEdit()) {
-                ViewItem = Dot.LoadFileRaw((sender as OpenFileDialog).FileName, ViewItem);
-                //newEditor.UpdateEditor();
-                newEditor.Show();
-            }
+#pragma warning disable IDE0067 // Dispose objects before losing scope
+            FacEdit newEditor = new FacEdit(Dot.LoadFileRaw((sender as OpenFileDialog).FileName, ViewItem));
+#pragma warning restore IDE0067 // Dispose objects before losing scope
+            newEditor.Show();
         }
 
         // ---------------- ---------------- ---------------- ---------------- ---------------- //

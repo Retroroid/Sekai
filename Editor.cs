@@ -24,8 +24,9 @@ namespace Sekai {
         public Dictionary<TextBox, string> LinkNM;
         #endregion
 
-        public Dictionary<ListView, dynamic> ListLink;
         public Dictionary<ListView, string[]> ListHeaders;
+
+        public Dictionary<ListView, dynamic> ListLink;
         public Dictionary<ListView, Type> ListType;
 
         // ---------------- Constructors and Initialization---------------- ---------------- //
@@ -92,6 +93,7 @@ namespace Sekai {
             RegularTextBox.Add(tb);
             LinkTB.Add(tb, tb.Name.Substring(4));
             RegTBUpdateView(tb);
+            tb.TextChanged += new EventHandler(TextBox_TextChanged);
         }
         public void InitializeTextBoxNumerical(TextBox tb) {
             RegularTextBoxNumerical.Add(tb);
@@ -145,11 +147,6 @@ namespace Sekai {
         }
         #endregion
 
-        #region View Updates (Particular)
-
-
-        #endregion
-
         #region Model Updates (Regular)
 
         //public void RegLVUpdateModel(ListViewItem lvi) {
@@ -164,27 +161,22 @@ namespace Sekai {
         }
         #endregion
 
-        #region Model Updates (Particular)
-
-
-        #endregion 
-
         #region ListView Context List Options (Including new editor from list)
         public void ListViewEditItem(object sender, EventArgs e) {
             ToolStripMenuItem tsmi = (ToolStripMenuItem)sender;
             ContextMenuStrip cms = (ContextMenuStrip)tsmi.Owner;
             ListView lv = (ListView)cms.SourceControl;
-
             if (RegularListView.Contains(lv)) {
                 using (ListViewItemEditor lvie = new ListViewItemEditor(
                     lv, LinkLV)) {
                     lvie.ShowDialog();
                 }
+                RegLVUpdateView(lv);
             }
             else {
                 OpenByReference(lv);
+                lv.Refresh();
             }
-            RegLVUpdateView(lv);
         }
         public void OpenByReference(ListView lv) {
             if (lv.SelectedIndices.Count == 0) return;
@@ -266,12 +258,17 @@ namespace Sekai {
             LinkLV[sender as ListView].SortListByColumn(e.Column);
         }
 
+        public void TextBox_TextChanged(object sender, EventArgs e) {
+            ViewItem.SetPropertyByName((sender as TextBox).Name.Substring(4), (sender as TextBox).Text);
+        }
+
         // ---------------- Meta-Methods ---------------- ---------------- //
         #region Numerical Text Box Masking
         public void TextBoxNumerical_TextChanged(object sender, EventArgs e) {
             if (System.Text.RegularExpressions.Regex.IsMatch((sender as TextBox).Text, "  ^ [0-9]")) {
                 (sender as TextBox).Text = "";
             }
+            else ViewItem.SetPropertyByName((sender as TextBox).Name.Substring(4), int.Parse((sender as TextBox).Text));
         }
         public void TextBoxNumerical_KeyPressed(object sender, KeyPressEventArgs e) {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.')) {
